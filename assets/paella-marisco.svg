@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de paella de marisco">
+  <defs>
+    <radialGradient id="bgM" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#DCF1F5"/>
+      <stop offset="100%" stop-color="#9EC9D8"/>
+    </radialGradient>
+    <radialGradient id="panM" cx="50%" cy="48%" r="55%">
+      <stop offset="60%" stop-color="#2d2118"/>
+      <stop offset="100%" stop-color="#0f0906"/>
+    </radialGradient>
+    <radialGradient id="riceM" cx="50%" cy="48%" r="50%">
+      <stop offset="0%" stop-color="#F5D061"/>
+      <stop offset="70%" stop-color="#E4A72F"/>
+      <stop offset="100%" stop-color="#B87C18"/>
+    </radialGradient>
+    <linearGradient id="shrimpM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBA584"/>
+      <stop offset="100%" stop-color="#D9522D"/>
+    </linearGradient>
+    <linearGradient id="musselM" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a3147"/>
+      <stop offset="100%" stop-color="#0b0e1a"/>
+    </linearGradient>
+    <linearGradient id="musselInM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4B689"/>
+      <stop offset="100%" stop-color="#C77043"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgM)"/>
+  <ellipse cx="400" cy="555" rx="300" ry="22" fill="rgba(0,0,0,0.18)"/>
+
+  <circle cx="110" cy="300" r="18" fill="#1a110a"/>
+  <circle cx="690" cy="300" r="18" fill="#1a110a"/>
+  <rect x="92" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+  <rect x="670" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+
+  <ellipse cx="400" cy="310" rx="290" ry="255" fill="url(#panM)"/>
+  <ellipse cx="400" cy="300" rx="268" ry="232" fill="url(#riceM)"/>
+
+  <g fill="#fff4c6" opacity="0.55">
+    <circle cx="260" cy="220" r="2.2"/><circle cx="320" cy="270" r="2"/><circle cx="390" cy="215" r="2"/><circle cx="460" cy="265" r="2.4"/><circle cx="520" cy="220" r="2"/><circle cx="560" cy="280" r="2.2"/>
+    <circle cx="300" cy="340" r="2"/><circle cx="370" cy="380" r="2.2"/><circle cx="430" cy="340" r="2"/><circle cx="500" cy="390" r="2.3"/><circle cx="560" cy="350" r="2"/>
+    <circle cx="240" cy="290" r="2"/><circle cx="600" cy="300" r="2.2"/><circle cx="400" cy="430" r="2"/><circle cx="320" cy="440" r="2"/><circle cx="490" cy="440" r="2.2"/>
+  </g>
+
+  <!-- Shrimp 1 -->
+  <g transform="translate(290 220) rotate(-20)">
+    <path d="M-60 0 Q -60 -36 0 -36 Q 60 -36 60 0 Q 40 20 0 20 Q -40 20 -60 0 Z" fill="url(#shrimpM)"/>
+    <path d="M-50 -4 q 10 -6 20 0 m 0 0 q 10 -6 20 0 m 0 0 q 10 -6 20 0 m 0 0 q 10 -6 20 0" stroke="#8a2f15" stroke-width="1.8" fill="none" opacity="0.6"/>
+    <path d="M60 0 l 22 -10 l -6 16 Z" fill="#d9522d"/>
+    <circle cx="-54" cy="-6" r="2.5" fill="#3a1207"/>
+  </g>
+
+  <!-- Shrimp 2 -->
+  <g transform="translate(520 360) rotate(18)">
+    <path d="M-60 0 Q -60 -36 0 -36 Q 60 -36 60 0 Q 40 20 0 20 Q -40 20 -60 0 Z" fill="url(#shrimpM)"/>
+    <path d="M-50 -4 q 10 -6 20 0 m 0 0 q 10 -6 20 0 m 0 0 q 10 -6 20 0 m 0 0 q 10 -6 20 0" stroke="#8a2f15" stroke-width="1.8" fill="none" opacity="0.6"/>
+    <path d="M60 0 l 22 -10 l -6 16 Z" fill="#d9522d"/>
+    <circle cx="-54" cy="-6" r="2.5" fill="#3a1207"/>
+  </g>
+
+  <!-- Shrimp 3 small -->
+  <g transform="translate(330 400) rotate(8) scale(0.75)">
+    <path d="M-60 0 Q -60 -36 0 -36 Q 60 -36 60 0 Q 40 20 0 20 Q -40 20 -60 0 Z" fill="url(#shrimpM)"/>
+    <path d="M60 0 l 22 -10 l -6 16 Z" fill="#d9522d"/>
+  </g>
+
+  <!-- Mussels -->
+  <g transform="translate(500 220) rotate(30)">
+    <path d="M-56 0 Q -36 -38 0 -38 Q 36 -38 56 0 Z" fill="url(#musselM)"/>
+    <path d="M-50 -2 Q -30 -32 0 -32 Q 30 -32 50 -2 Z" fill="url(#musselInM)"/>
+    <path d="M-40 -4 Q -22 -26 0 -26 Q 22 -26 40 -4 Z" fill="#a86841" opacity="0.5"/>
+  </g>
+  <g transform="translate(230 360) rotate(-25)">
+    <path d="M-56 0 Q -36 -38 0 -38 Q 36 -38 56 0 Z" fill="url(#musselM)"/>
+    <path d="M-50 -2 Q -30 -32 0 -32 Q 30 -32 50 -2 Z" fill="url(#musselInM)"/>
+  </g>
+  <g transform="translate(440 450) rotate(10)">
+    <path d="M-56 0 Q -36 -38 0 -38 Q 36 -38 56 0 Z" fill="url(#musselM)"/>
+    <path d="M-50 -2 Q -30 -32 0 -32 Q 30 -32 50 -2 Z" fill="url(#musselInM)"/>
+  </g>
+
+  <!-- Clams -->
+  <g transform="translate(600 320)">
+    <ellipse cx="0" cy="0" rx="26" ry="20" fill="#d9c59a"/>
+    <path d="M-24 0 q 12 -6 24 0 m -22 -4 q 10 -5 20 0 m -18 -4 q 8 -4 16 0" stroke="#8a7a52" stroke-width="1.3" fill="none"/>
+  </g>
+
+  <!-- Lemon wedges -->
+  <g transform="translate(170 220) rotate(-15)">
+    <path d="M0 0 L 52 0 A 52 52 0 0 0 0 -52 Z" fill="#F7D04B"/>
+    <path d="M4 -4 L 46 -4 A 46 46 0 0 0 4 -46 Z" fill="#FEEC8F" opacity="0.7"/>
+    <line x1="6" y1="-6" x2="40" y2="-6" stroke="#d9a81a" stroke-width="1.4"/>
+    <line x1="6" y1="-6" x2="6" y2="-40" stroke="#d9a81a" stroke-width="1.4"/>
+  </g>
+
+  <g transform="translate(640 440) rotate(160)">
+    <path d="M0 0 L 48 0 A 48 48 0 0 0 0 -48 Z" fill="#F7D04B"/>
+    <path d="M4 -4 L 42 -4 A 42 42 0 0 0 4 -42 Z" fill="#FEEC8F" opacity="0.7"/>
+  </g>
+
+  <!-- Parsley dots -->
+  <g fill="#4a7a22">
+    <circle cx="400" cy="290" r="3"/><circle cx="406" cy="286" r="2"/><circle cx="394" cy="294" r="2"/>
+    <circle cx="350" cy="330" r="2.5"/><circle cx="480" cy="330" r="2.5"/><circle cx="300" cy="290" r="2"/>
+  </g>
+</svg>

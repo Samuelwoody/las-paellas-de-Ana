@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de paella de carne">
+  <defs>
+    <radialGradient id="bgC" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#FFF3D0"/>
+      <stop offset="100%" stop-color="#F0D9A4"/>
+    </radialGradient>
+    <radialGradient id="panC" cx="50%" cy="48%" r="55%">
+      <stop offset="60%" stop-color="#2d2118"/>
+      <stop offset="100%" stop-color="#0f0906"/>
+    </radialGradient>
+    <radialGradient id="riceC" cx="50%" cy="48%" r="50%">
+      <stop offset="0%" stop-color="#F5D061"/>
+      <stop offset="70%" stop-color="#E4A72F"/>
+      <stop offset="100%" stop-color="#B87C18"/>
+    </radialGradient>
+    <linearGradient id="chickenC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A0611D"/>
+      <stop offset="100%" stop-color="#6a3d10"/>
+    </linearGradient>
+    <linearGradient id="pepRedC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E94B35"/>
+      <stop offset="100%" stop-color="#A82414"/>
+    </linearGradient>
+    <linearGradient id="beanC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7AA33B"/>
+      <stop offset="100%" stop-color="#4F7020"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgC)"/>
+  <ellipse cx="400" cy="555" rx="300" ry="22" fill="rgba(0,0,0,0.18)"/>
+
+  <!-- Pan outer (handles) -->
+  <circle cx="110" cy="300" r="18" fill="#1a110a"/>
+  <circle cx="690" cy="300" r="18" fill="#1a110a"/>
+  <rect x="92" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+  <rect x="670" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+
+  <!-- Pan -->
+  <ellipse cx="400" cy="310" rx="290" ry="255" fill="url(#panC)"/>
+  <ellipse cx="400" cy="300" rx="268" ry="232" fill="url(#riceC)"/>
+
+  <!-- Rice texture dots -->
+  <g fill="#fff4c6" opacity="0.55">
+    <circle cx="280" cy="220" r="2.2"/><circle cx="330" cy="260" r="2"/><circle cx="380" cy="210" r="2"/><circle cx="440" cy="250" r="2.4"/><circle cx="500" cy="215" r="2"/><circle cx="540" cy="270" r="2.2"/>
+    <circle cx="300" cy="330" r="2"/><circle cx="360" cy="370" r="2.2"/><circle cx="420" cy="340" r="2"/><circle cx="480" cy="380" r="2.3"/><circle cx="540" cy="350" r="2"/>
+    <circle cx="250" cy="290" r="2"/><circle cx="600" cy="300" r="2.2"/><circle cx="400" cy="420" r="2"/><circle cx="320" cy="430" r="2"/><circle cx="480" cy="430" r="2.2"/>
+  </g>
+
+  <!-- Chicken piece 1 -->
+  <g transform="translate(290 230) rotate(-18)">
+    <ellipse cx="0" cy="0" rx="58" ry="42" fill="url(#chickenC)"/>
+    <ellipse cx="-8" cy="-10" rx="30" ry="14" fill="#c78449" opacity="0.6"/>
+    <path d="M-40 10 Q 0 30 40 8" stroke="#3a1e08" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Chicken piece 2 -->
+  <g transform="translate(520 360) rotate(22)">
+    <ellipse cx="0" cy="0" rx="62" ry="44" fill="url(#chickenC)"/>
+    <ellipse cx="-6" cy="-12" rx="32" ry="15" fill="#c78449" opacity="0.6"/>
+    <path d="M-44 8 Q 0 30 44 6" stroke="#3a1e08" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Chicken piece 3 -->
+  <g transform="translate(320 400) rotate(12)">
+    <ellipse cx="0" cy="0" rx="50" ry="36" fill="url(#chickenC)"/>
+    <ellipse cx="-4" cy="-8" rx="26" ry="12" fill="#c78449" opacity="0.6"/>
+  </g>
+
+  <!-- Red pepper strips -->
+  <g fill="url(#pepRedC)">
+    <path d="M430 190 q 60 -10 90 10 q -20 22 -80 14 q -20 -4 -10 -24 z"/>
+    <path d="M220 340 q 50 -8 80 14 q -24 20 -78 8 q -16 -6 -2 -22 z"/>
+    <path d="M540 440 q 55 -6 78 20 q -30 14 -76 0 q -12 -8 -2 -20 z"/>
+  </g>
+
+  <!-- Green beans -->
+  <g fill="url(#beanC)">
+    <path d="M470 280 q 40 -20 88 -4 q -8 14 -42 14 q -30 0 -46 -10 z" opacity="0.95"/>
+    <path d="M260 410 q 48 -16 82 8 q -22 18 -60 8 q -28 -6 -22 -16 z"/>
+    <path d="M380 460 q 46 -14 72 12 q -26 16 -64 6 q -20 -6 -8 -18 z"/>
+    <path d="M500 200 q 40 -12 78 10 q -22 16 -58 8 q -26 -6 -20 -18 z"/>
+  </g>
+
+  <!-- Rosemary / herb sprigs -->
+  <g stroke="#2a5a1c" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M360 150 q 10 20 0 50"/>
+    <path d="M358 160 l -10 -6"/><path d="M362 175 l 12 -4"/><path d="M358 190 l -10 -4"/><path d="M362 205 l 12 -2"/>
+  </g>
+
+  <!-- Lemon wedge corner -->
+  <g transform="translate(600 160)">
+    <path d="M0 0 L 60 0 A 60 60 0 0 0 0 -60 Z" fill="#F7D04B"/>
+    <path d="M4 -4 L 52 -4 A 52 52 0 0 0 4 -52 Z" fill="#FEEC8F" opacity="0.7"/>
+    <line x1="6" y1="-6" x2="46" y2="-6" stroke="#d9a81a" stroke-width="1.4"/>
+    <line x1="6" y1="-6" x2="6" y2="-46" stroke="#d9a81a" stroke-width="1.4"/>
+  </g>
+</svg>

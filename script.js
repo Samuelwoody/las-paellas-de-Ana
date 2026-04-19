@@ -28,7 +28,7 @@
         document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.card').forEach((card) => {
+    document.querySelectorAll('.card-paella').forEach((card) => {
         const product = card.getAttribute('data-product');
         const fire = (e) => {
             e.preventDefault();
@@ -43,7 +43,7 @@
         });
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Pedir ${product}`);
+        card.setAttribute('aria-label', `Pide esta ${product}`);
     });
 
     modal.addEventListener('click', (e) => {

@@ -348,17 +348,34 @@ h1, h2, h3, h4 {
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition), box-shadow var(--transition);
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     position: relative;
 }
-.card:hover {
+
+/* Interactive paella cards */
+.card-paella {
+    cursor: pointer;
+}
+.card-paella:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
 }
-.card:hover .card-img { transform: scale(1.08); }
-.card:hover .btn-order { background: var(--paprika); }
+.card-paella:hover .card-img { transform: scale(1.05); }
+.card-paella:hover .btn-order { background: var(--paprika); }
+.card-paella:focus-visible {
+    outline: 3px solid var(--paprika);
+    outline-offset: 3px;
+}
+
+/* Decorative / informational cards (no click, no hover lift) */
+.card-info {
+    cursor: default;
+}
+.card-info:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
 
 .card-img {
     width: 100%;
@@ -368,7 +385,6 @@ h1, h2, h3, h4 {
     background-color: var(--sand);
     transition: transform 0.6s ease;
 }
-.card-sm .card-img { aspect-ratio: 16 / 10; }
 
 .card-body {
     padding: 22px 22px 24px;
@@ -409,6 +425,37 @@ h1, h2, h3, h4 {
 .tag-classic { background: rgba(120,86,49,0.15); color: #6b4a26; }
 .tag-cool { background: rgba(36,128,166,0.12); color: #1d6688; }
 .tag-wine { background: rgba(120,30,60,0.15); color: #781e3c; }
+
+/* ======================== TIP BAND ======================== */
+.tip-band {
+    background: linear-gradient(135deg, var(--saffron) 0%, #E89F1C 100%);
+    padding: 22px 0;
+    color: var(--ink);
+}
+.tip-band-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.tip-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+.tip-band p {
+    font-size: 1rem;
+    max-width: 880px;
+    line-height: 1.55;
+}
+.tip-band a {
+    color: var(--paprika-deep);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.tip-band a:hover { color: var(--ink); }
 
 /* ======================== CONTACT ======================== */
 .contact-section {
