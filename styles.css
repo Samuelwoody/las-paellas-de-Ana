@@ -560,6 +560,52 @@ h1, h2, h3, h4 {
     text-align: center;
     font-size: 0.85rem;
     color: rgba(255,248,231,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.admin-link {
+    font-size: 0.78rem;
+    color: rgba(255,248,231,0.4);
+    border: 1px solid rgba(255,248,231,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    transition: color var(--transition), border-color var(--transition);
+}
+.admin-link:hover { color: var(--saffron); border-color: var(--saffron); }
+
+.menu-grid-loading,
+.menu-grid-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    background: var(--sand);
+    border-radius: var(--radius);
+    border: 1px dashed var(--line);
+}
+.menu-grid-loading::before {
+    content: '';
+    display: inline-block;
+    width: 14px; height: 14px;
+    margin-right: 10px;
+    border: 2px solid var(--paprika);
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    vertical-align: -2px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.card-price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--paprika-deep);
+    margin: 10px 0 0;
 }
 
 /* ======================== FAB ======================== */

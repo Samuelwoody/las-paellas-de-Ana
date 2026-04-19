@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23F5B400'/%3E%3Ccircle cx='50' cy='50' r='35' fill='%23C0392B'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23FFF8E7' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="config.js" defer></script>
+    <script src="assets/js/supabase-client.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -71,56 +75,8 @@
                 <p>Elaboradas al momento con ingredientes frescos. Haz clic en la que más te apetezca y te llamamos al instante.</p>
             </div>
 
-            <div class="menu-grid paellas-grid">
-
-                <article class="card card-paella" data-product="Paella de Carne">
-                    <div class="card-img" style="background-image:url('assets/paella-carne.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella de Carne</h3>
-                            <span class="tag tag-meat">Carne</span>
-                        </div>
-                        <p>Pollo de corral, conejo, judía verde, garrofón y nuestro sofrito secreto.</p>
-                        <button class="btn btn-order" type="button">Pide esta Paella</button>
-                    </div>
-                </article>
-
-                <article class="card card-paella" data-product="Paella Vegetariana">
-                    <div class="card-img" style="background-image:url('assets/paella-vegetariana.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella Vegetariana</h3>
-                            <span class="tag tag-veg">Vegetariana</span>
-                        </div>
-                        <p>Alcachofa, pimientos, judía verde, tomate cherry y azafrán. 100% vegetal.</p>
-                        <button class="btn btn-order" type="button">Pide esta Paella</button>
-                    </div>
-                </article>
-
-                <article class="card card-paella" data-product="Paella de Marisco">
-                    <div class="card-img" style="background-image:url('assets/paella-marisco.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella de Marisco</h3>
-                            <span class="tag tag-sea">Marisco</span>
-                        </div>
-                        <p>Gambas, mejillones, calamar y almejas sobre fumet de pescado.</p>
-                        <button class="btn btn-order" type="button">Pide esta Paella</button>
-                    </div>
-                </article>
-
-                <article class="card card-paella" data-product="Paella Mixta">
-                    <div class="card-img" style="background-image:url('assets/paella-mixta.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella Mixta</h3>
-                            <span class="tag tag-mix">Mixta</span>
-                        </div>
-                        <p>Lo mejor del mar y la tierra: pollo, gambas, mejillones y pimientos.</p>
-                        <button class="btn btn-order" type="button">Pide esta Paella</button>
-                    </div>
-                </article>
-
+            <div class="menu-grid paellas-grid" id="paellas-grid" data-category="paella">
+                <div class="menu-grid-loading">Cargando paellas…</div>
             </div>
         </div>
     </section>
@@ -133,28 +89,8 @@
                 <p>El contrapunto perfecto. Coméntaselo a Ana al llamar y te lo añadimos al pedido.</p>
             </div>
 
-            <div class="menu-grid two-col">
-                <article class="card card-info">
-                    <div class="card-img" style="background-image:url('assets/ensalada-fresca.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Ensalada Fresca de la Casa</h3>
-                            <span class="tag tag-veg">Fresca</span>
-                        </div>
-                        <p>Mezclum, tomate, cebolla morada, aceitunas y aliño de la casa.</p>
-                    </div>
-                </article>
-
-                <article class="card card-info">
-                    <div class="card-img" style="background-image:url('assets/ensaladilla-rusa.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Ensaladilla Rusa</h3>
-                            <span class="tag tag-classic">Clásica</span>
-                        </div>
-                        <p>Receta de toda la vida: patata, atún, huevo, zanahoria y mayonesa casera.</p>
-                    </div>
-                </article>
+            <div class="menu-grid two-col" id="ensaladas-grid" data-category="ensalada">
+                <div class="menu-grid-loading">Cargando ensaladas…</div>
             </div>
         </div>
     </section>
@@ -167,39 +103,8 @@
                 <p>Todas las bebidas se piden por teléfono junto con tu paella. Dile a Ana lo que te apetece.</p>
             </div>
 
-            <div class="menu-grid three-col">
-                <article class="card card-sm card-info">
-                    <div class="card-img" style="background-image:url('assets/refrescos.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Refrescos</h3>
-                            <span class="tag tag-cool">Fríos</span>
-                        </div>
-                        <p>Coca-Cola, Fanta, Aquarius, agua mineral y más.</p>
-                    </div>
-                </article>
-
-                <article class="card card-sm card-info">
-                    <div class="card-img" style="background-image:url('assets/cervezas.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Cervezas</h3>
-                            <span class="tag tag-cool">Bien fría</span>
-                        </div>
-                        <p>Mahou, Estrella Galicia, Alhambra y opción 0,0.</p>
-                    </div>
-                </article>
-
-                <article class="card card-sm card-info">
-                    <div class="card-img" style="background-image:url('assets/vinos.svg')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Vinos</h3>
-                            <span class="tag tag-wine">Selección</span>
-                        </div>
-                        <p>Tintos de Rioja y Ribera, blancos Verdejo y Rueda, rosados.</p>
-                    </div>
-                </article>
+            <div class="menu-grid three-col" id="bebidas-grid" data-category="bebida">
+                <div class="menu-grid-loading">Cargando bebidas…</div>
             </div>
         </div>
     </section>
@@ -279,6 +184,7 @@
         </div>
         <div class="footer-bottom">
             <span>© <span id="year"></span> Las Paellas de Ana · Restaurante Terraza Cerro</span>
+            <a href="login.html" class="admin-link" rel="nofollow">Admin</a>
         </div>
     </footer>
 
@@ -308,6 +214,5 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
