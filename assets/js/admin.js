@@ -4,12 +4,21 @@
     const TAG_STYLES = ['meat', 'veg', 'sea', 'mix', 'classic', 'cool', 'wine'];
     const CATEGORIES = { paella: 'Paella', ensalada: 'Ensalada', bebida: 'Bebida' };
 
+    const SETTINGS_FIELDS = [
+        'brand_name', 'brand_subtitle', 'logo_url',
+        'hero_eyebrow', 'hero_title', 'hero_lead', 'hero_area',
+        'phone_display', 'phone_tel',
+        'address_line1', 'address_line2', 'restaurant_name'
+    ];
+
     const state = {
         products: [],
         filter: 'all',
         editingId: null,
         deleteTargetId: null,
-        uploadedImagePath: null
+        uploadedImagePath: null,
+        activePanel: 'products',
+        settings: null
     };
 
     const els = {};
@@ -278,6 +287,131 @@
         }
     }
 
+    // ------------------------- Site settings -----------------------------
+    async function loadSettings() {
+        const { data, error } = await window.lpdaSupabase
+            .from('site_settings')
+            .select('*')
+            .eq('id', 1)
+            .maybeSingle();
+        if (error) {
+            showNotice('Error cargando ajustes: ' + error.message, 'error');
+            return;
+        }
+        state.settings = data || {};
+        fillSettingsForm(state.settings);
+    }
+
+    function fillSettingsForm(settings) {
+        if (!els.settingsForm) return;
+        SETTINGS_FIELDS.forEach((key) => {
+            const input = els.settingsForm.elements[key];
+            if (!input) return;
+            input.value = settings[key] != null ? settings[key] : '';
+        });
+        updateLogoPreview(settings.logo_url || '');
+        if (els.logoFileInput) els.logoFileInput.value = '';
+    }
+
+    function updateLogoPreview(url) {
+        if (!els.logoPreview) return;
+        if (url) {
+            els.logoPreview.innerHTML = `<img src="${String(url).replace(/"/g,'&quot;')}" alt="">`;
+        } else {
+            els.logoPreview.innerHTML = '<span>Sin logo</span>';
+        }
+    }
+
+    async function uploadSiteImage(file, prefix) {
+        const bucket = window.lpdaStorageBucket || 'product-images';
+        const ext = (file.name.split('.').pop() || 'png').toLowerCase();
+        const safeExt = ext.length > 5 ? 'png' : ext;
+        const path = `site/${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${safeExt}`;
+        const { error } = await window.lpdaSupabase.storage
+            .from(bucket)
+            .upload(path, file, { cacheControl: '3600', upsert: false, contentType: file.type });
+        if (error) throw error;
+        const { data } = window.lpdaSupabase.storage.from(bucket).getPublicUrl(path);
+        return data.publicUrl;
+    }
+
+    async function handleLogoChange(e) {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        if (file.size > 4 * 1024 * 1024) {
+            els.settingsError.textContent = 'El logo pesa más de 4 MB.';
+            els.settingsError.hidden = false;
+            e.target.value = '';
+            return;
+        }
+        els.settingsError.hidden = true;
+        updateLogoPreview(URL.createObjectURL(file));
+        try {
+            const url = await uploadSiteImage(file, 'logo');
+            els.settingsForm.elements.logo_url.value = url;
+            updateLogoPreview(url);
+        } catch (err) {
+            els.settingsError.textContent = 'No se pudo subir el logo: ' + (err.message || err);
+            els.settingsError.hidden = false;
+            updateLogoPreview(els.settingsForm.elements.logo_url.value || '');
+        }
+    }
+
+    async function handleSettingsSubmit(e) {
+        e.preventDefault();
+        els.settingsError.hidden = true;
+
+        const payload = { id: 1 };
+        SETTINGS_FIELDS.forEach((key) => {
+            const input = els.settingsForm.elements[key];
+            if (!input) return;
+            const v = input.value.trim();
+            payload[key] = v === '' ? null : v;
+        });
+
+        if (!payload.brand_name) {
+            els.settingsError.textContent = 'El nombre de la marca no puede estar vacío.';
+            els.settingsError.hidden = false;
+            return;
+        }
+
+        els.saveSettingsBtn.disabled = true;
+        els.saveSettingsBtn.textContent = 'Guardando…';
+
+        try {
+            const { error } = await window.lpdaSupabase
+                .from('site_settings')
+                .upsert(payload, { onConflict: 'id' });
+            if (error) throw error;
+            state.settings = payload;
+            showNotice('Ajustes guardados. Se aplican al refrescar la web pública.', 'success');
+        } catch (err) {
+            els.settingsError.textContent = 'No se pudo guardar: ' + (err.message || err);
+            els.settingsError.hidden = false;
+        } finally {
+            els.saveSettingsBtn.disabled = false;
+            els.saveSettingsBtn.textContent = 'Guardar ajustes';
+        }
+    }
+
+    function switchPanel(name) {
+        state.activePanel = name;
+        els.navBtns.forEach((b) => {
+            const active = b.getAttribute('data-panel') === name;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        document.querySelectorAll('.admin-panel').forEach((p) => {
+            const active = p.id === 'panel-' + name;
+            p.classList.toggle('is-active', active);
+            p.hidden = !active;
+        });
+
+        if (name === 'settings' && !state.settings) {
+            loadSettings();
+        }
+    }
+
     // ------------------------- Wiring ------------------------------------
     async function init() {
         els.adminUser       = document.getElementById('adminUser');
@@ -297,6 +431,13 @@
         els.deleteModal     = document.getElementById('deleteModal');
         els.deleteName      = document.getElementById('deleteName');
         els.confirmDeleteBtn= document.getElementById('confirmDeleteBtn');
+        els.navBtns         = document.querySelectorAll('.admin-nav-btn');
+        els.settingsForm    = document.getElementById('settingsForm');
+        els.settingsError   = document.getElementById('settingsError');
+        els.saveSettingsBtn = document.getElementById('saveSettingsBtn');
+        els.logoFileInput   = document.getElementById('logoFile');
+        els.logoPreview     = document.getElementById('logoPreview');
+        els.removeLogoBtn   = document.getElementById('removeLogoBtn');
 
         const user = await requireAuth();
         if (!user) return;
@@ -305,6 +446,26 @@
             await window.lpdaSupabase.auth.signOut();
             window.location.replace('login.html');
         });
+
+        // Nav entre paneles
+        els.navBtns.forEach((btn) => {
+            btn.addEventListener('click', () => switchPanel(btn.getAttribute('data-panel')));
+        });
+
+        // Formulario de ajustes
+        if (els.settingsForm) {
+            els.settingsForm.addEventListener('submit', handleSettingsSubmit);
+        }
+        if (els.logoFileInput) {
+            els.logoFileInput.addEventListener('change', handleLogoChange);
+        }
+        if (els.removeLogoBtn) {
+            els.removeLogoBtn.addEventListener('click', () => {
+                els.settingsForm.elements.logo_url.value = '';
+                if (els.logoFileInput) els.logoFileInput.value = '';
+                updateLogoPreview('');
+            });
+        }
 
         els.newBtn.addEventListener('click', () => openForm(null));
 

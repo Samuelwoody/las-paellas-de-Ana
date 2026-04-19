@@ -104,6 +104,23 @@ h1, h2, h3, h4 {
     font-size: 1.4rem;
     box-shadow: 0 4px 12px rgba(192, 57, 43, 0.35);
     flex-shrink: 0;
+    overflow: hidden;
+}
+.brand-mark.brand-mark-has-logo {
+    width: auto;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: none;
+}
+.brand-logo-img {
+    display: block;
+    height: 44px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name {

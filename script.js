@@ -190,9 +190,71 @@
         }
     }
 
+    // -------------------------- Site settings ----------------------------
+    function applySiteSettings(settings) {
+        if (!settings) return;
+
+        // Texto
+        document.querySelectorAll('[data-lpda-text]').forEach((el) => {
+            const key = el.getAttribute('data-lpda-text');
+            if (settings[key] != null && String(settings[key]).trim() !== '') {
+                el.textContent = settings[key];
+            }
+        });
+
+        // Enlaces tel:
+        document.querySelectorAll('[data-lpda-tel]').forEach((el) => {
+            const key = el.getAttribute('data-lpda-tel');
+            const val = settings[key];
+            if (val) el.setAttribute('href', 'tel:' + String(val).replace(/\s+/g, ''));
+        });
+
+        // Logo: si hay logo_url, reemplaza la brand-mark con una img
+        if (settings.logo_url) {
+            document.querySelectorAll('[data-lpda-logo]').forEach((el) => {
+                if (el.dataset.lpdaLogoApplied === '1') return;
+                el.classList.add('brand-mark-has-logo');
+                el.innerHTML = `<img src="${escapeHtml(settings.logo_url)}" alt="${escapeHtml(settings.brand_name || 'Logo')}" class="brand-logo-img" />`;
+                el.dataset.lpdaLogoApplied = '1';
+            });
+        }
+
+        // Mapa: reconstruir query con la dirección
+        const map = document.getElementById('contactMap');
+        if (map && (settings.address_line1 || settings.address_line2)) {
+            const q = [settings.address_line1, settings.address_line2].filter(Boolean).join(', ');
+            map.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed';
+            map.setAttribute('title', 'Mapa de recogida — ' + q);
+        }
+
+        // Título de la pestaña + meta description
+        if (settings.brand_name) {
+            document.title = settings.brand_name + ' · Paellas para llevar';
+        }
+    }
+
+    async function loadSiteSettings() {
+        if (!window.lpdaSupabase || !window.lpdaConfigIsReady) return;
+        try {
+            const { data, error } = await window.lpdaSupabase
+                .from('site_settings')
+                .select('*')
+                .eq('id', 1)
+                .maybeSingle();
+            if (error) throw error;
+            if (data) applySiteSettings(data);
+        } catch (err) {
+            console.warn('No se pudieron cargar ajustes del sitio:', err);
+        }
+    }
+
+    function bootstrap() {
+        Promise.all([loadSiteSettings(), loadProductsFromSupabase()]);
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadProductsFromSupabase);
+        document.addEventListener('DOMContentLoaded', bootstrap);
     } else {
-        loadProductsFromSupabase();
+        bootstrap();
     }
 })();

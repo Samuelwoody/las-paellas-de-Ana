@@ -33,44 +33,154 @@
         </nav>
     </header>
 
-    <main class="admin-main">
-        <section class="admin-header">
-            <div>
-                <span class="eyebrow">Gestión del menú</span>
-                <h1>Productos</h1>
-                <p class="admin-lead">Crea, edita y organiza lo que aparece en la web pública. Los cambios salen al instante.</p>
-            </div>
-            <button type="button" class="btn btn-primary" id="newProductBtn">+ Nuevo producto</button>
-        </section>
-
-        <div class="admin-tabs" role="tablist">
-            <button type="button" class="admin-tab is-active" data-filter="all" role="tab" aria-selected="true">Todos</button>
-            <button type="button" class="admin-tab" data-filter="paella" role="tab" aria-selected="false">Paellas</button>
-            <button type="button" class="admin-tab" data-filter="ensalada" role="tab" aria-selected="false">Ensaladas</button>
-            <button type="button" class="admin-tab" data-filter="bebida" role="tab" aria-selected="false">Bebidas</button>
+    <nav class="admin-nav" role="tablist">
+        <div class="container">
+            <button type="button" class="admin-nav-btn is-active" data-panel="products" role="tab" aria-selected="true">🍽️ Productos</button>
+            <button type="button" class="admin-nav-btn" data-panel="settings" role="tab" aria-selected="false">⚙️ Ajustes del sitio</button>
         </div>
+    </nav>
+
+    <main class="admin-main">
 
         <div class="admin-notice" id="adminNotice" hidden></div>
 
-        <div class="admin-table-wrap">
-            <table class="admin-table" id="productsTable">
-                <thead>
-                    <tr>
-                        <th class="col-img">Imagen</th>
-                        <th>Nombre</th>
-                        <th>Categoría</th>
-                        <th>Etiqueta</th>
-                        <th class="col-price">Precio</th>
-                        <th class="col-order">Orden</th>
-                        <th class="col-status">Estado</th>
-                        <th class="col-actions"></th>
-                    </tr>
-                </thead>
-                <tbody id="productsBody">
-                    <tr><td colspan="8" class="admin-table-empty">Cargando productos…</td></tr>
-                </tbody>
-            </table>
-        </div>
+        <!-- ============ PANEL PRODUCTOS ============ -->
+        <section class="admin-panel is-active" id="panel-products" role="tabpanel">
+            <section class="admin-header">
+                <div>
+                    <span class="eyebrow">Gestión del menú</span>
+                    <h1>Productos</h1>
+                    <p class="admin-lead">Crea, edita y organiza lo que aparece en la web pública. Los cambios salen al instante.</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="newProductBtn">+ Nuevo producto</button>
+            </section>
+
+            <div class="admin-tabs" role="tablist">
+                <button type="button" class="admin-tab is-active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                <button type="button" class="admin-tab" data-filter="paella" role="tab" aria-selected="false">Paellas</button>
+                <button type="button" class="admin-tab" data-filter="ensalada" role="tab" aria-selected="false">Ensaladas</button>
+                <button type="button" class="admin-tab" data-filter="bebida" role="tab" aria-selected="false">Bebidas</button>
+            </div>
+
+            <div class="admin-table-wrap">
+                <table class="admin-table" id="productsTable">
+                    <thead>
+                        <tr>
+                            <th class="col-img">Imagen</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Etiqueta</th>
+                            <th class="col-price">Precio</th>
+                            <th class="col-order">Orden</th>
+                            <th class="col-status">Estado</th>
+                            <th class="col-actions"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsBody">
+                        <tr><td colspan="8" class="admin-table-empty">Cargando productos…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ PANEL AJUSTES ============ -->
+        <section class="admin-panel" id="panel-settings" role="tabpanel" hidden>
+            <section class="admin-header">
+                <div>
+                    <span class="eyebrow">Cómo se ve la web</span>
+                    <h1>Ajustes del sitio</h1>
+                    <p class="admin-lead">Cambia el logo, los datos de contacto, el slogan y cómo aparece tu marca en la web pública.</p>
+                </div>
+            </section>
+
+            <form id="settingsForm" class="admin-settings-form" novalidate>
+
+                <fieldset class="admin-card-form">
+                    <legend>🏷️ Marca</legend>
+                    <div class="admin-form-row">
+                        <label class="admin-field">
+                            <span>Nombre de la marca</span>
+                            <input type="text" name="brand_name" maxlength="80" placeholder="Las Paellas de Ana">
+                        </label>
+                        <label class="admin-field">
+                            <span>Subtítulo</span>
+                            <input type="text" name="brand_subtitle" maxlength="120" placeholder="by Restaurante Terraza Cerro">
+                        </label>
+                    </div>
+                    <label class="admin-field">
+                        <span>Logo (imagen)</span>
+                        <div class="admin-image-upload">
+                            <div class="admin-image-preview admin-logo-preview" id="logoPreview" aria-hidden="true">
+                                <span>Sin logo</span>
+                            </div>
+                            <div class="admin-image-controls">
+                                <input type="file" id="logoFile" accept="image/*">
+                                <input type="hidden" name="logo_url" id="logoUrl">
+                                <button type="button" class="btn btn-sm btn-ghost-dark" id="removeLogoBtn">Quitar logo</button>
+                                <p class="admin-hint">Si subes un logo, reemplaza la letra A del navbar y del footer. PNG transparente o JPG.</p>
+                            </div>
+                        </div>
+                    </label>
+                </fieldset>
+
+                <fieldset class="admin-card-form">
+                    <legend>✨ Hero (portada)</legend>
+                    <label class="admin-field">
+                        <span>Encabezado pequeño</span>
+                        <input type="text" name="hero_eyebrow" maxlength="120" placeholder="Paellas para llevar · Valdemorillo">
+                    </label>
+                    <label class="admin-field">
+                        <span>Slogan principal <em>*</em></span>
+                        <textarea name="hero_title" rows="2" maxlength="180" placeholder="El sabor de la paella auténtica recién hecha para ti"></textarea>
+                    </label>
+                    <label class="admin-field">
+                        <span>Párrafo descriptivo</span>
+                        <textarea name="hero_lead" rows="3" maxlength="400" placeholder="Arroz bomba, sofrito a fuego lento…"></textarea>
+                    </label>
+                    <label class="admin-field">
+                        <span>Zona (badge del hero)</span>
+                        <input type="text" name="hero_area" maxlength="60" placeholder="Cerro Alarcón">
+                    </label>
+                </fieldset>
+
+                <fieldset class="admin-card-form">
+                    <legend>📞 Contacto</legend>
+                    <div class="admin-form-row">
+                        <label class="admin-field">
+                            <span>Teléfono visible</span>
+                            <input type="text" name="phone_display" maxlength="30" placeholder="918 97 44 33">
+                        </label>
+                        <label class="admin-field">
+                            <span>Teléfono para llamar (formato tel:)</span>
+                            <input type="text" name="phone_tel" maxlength="30" placeholder="+34918974433">
+                        </label>
+                    </div>
+                    <div class="admin-form-row">
+                        <label class="admin-field">
+                            <span>Dirección (línea 1)</span>
+                            <input type="text" name="address_line1" maxlength="120" placeholder="Calle Río Sil, 2">
+                        </label>
+                        <label class="admin-field">
+                            <span>Dirección (línea 2)</span>
+                            <input type="text" name="address_line2" maxlength="120" placeholder="Cerro Alarcón, Valdemorillo">
+                        </label>
+                    </div>
+                    <label class="admin-field">
+                        <span>Servicio de (restaurante)</span>
+                        <input type="text" name="restaurant_name" maxlength="120" placeholder="Restaurante Terraza Cerro">
+                    </label>
+                </fieldset>
+
+                <div class="admin-form-actions admin-settings-actions">
+                    <a href="index.html" target="_blank" rel="noopener" class="btn btn-ghost-dark">Ver web pública ↗</a>
+                    <button type="submit" class="btn btn-primary" id="saveSettingsBtn">Guardar ajustes</button>
+                </div>
+
+                <div class="admin-form-error" id="settingsError" role="alert" hidden></div>
+
+            </form>
+        </section>
+
     </main>
 
     <!-- Modal del formulario de producto -->

@@ -90,6 +90,79 @@ body.admin-body {
     text-align: center;
 }
 
+/* -------------------- PANEL NAV -------------------- */
+.admin-nav {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+}
+.admin-nav .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 26px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+}
+.admin-nav-btn {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 14px 18px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+    white-space: nowrap;
+}
+.admin-nav-btn:hover { color: var(--paprika); }
+.admin-nav-btn.is-active {
+    color: var(--paprika);
+    border-bottom-color: var(--paprika);
+}
+
+.admin-panel[hidden] { display: none; }
+
+/* -------------------- SETTINGS FORM -------------------- */
+.admin-settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 900px;
+}
+.admin-card-form {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--line);
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.admin-card-form legend {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--ink);
+    padding: 0 8px;
+    margin-left: -8px;
+}
+
+.admin-logo-preview {
+    background: linear-gradient(135deg, var(--sand), #ffffff);
+}
+
+.admin-settings-actions {
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent, var(--sand) 30%);
+    padding-top: 20px;
+    margin-top: 0;
+    justify-content: space-between;
+}
+
 /* -------------------- DASHBOARD LAYOUT -------------------- */
 .admin-topbar {
     background: #fff;

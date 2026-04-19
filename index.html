@@ -21,10 +21,10 @@
     <header class="navbar" id="navbar">
         <div class="container nav-content">
             <a href="#inicio" class="brand">
-                <span class="brand-mark">A</span>
+                <span class="brand-mark" data-lpda-logo>A</span>
                 <span class="brand-text">
-                    <span class="brand-name">Las Paellas de Ana</span>
-                    <span class="brand-sub">by Restaurante Terraza Cerro</span>
+                    <span class="brand-name" data-lpda-text="brand_name">Las Paellas de Ana</span>
+                    <span class="brand-sub" data-lpda-text="brand_subtitle">by Restaurante Terraza Cerro</span>
                 </span>
             </a>
             <nav class="nav-links">
@@ -32,7 +32,7 @@
                 <a href="#ensaladas">Ensaladas</a>
                 <a href="#bebidas">Bebidas</a>
                 <a href="#contacto">Contacto</a>
-                <a href="tel:+34918974433" class="nav-cta">📞 918 97 44 33</a>
+                <a href="tel:+34918974433" class="nav-cta" data-lpda-tel="phone_tel">📞 <span data-lpda-text="phone_display">918 97 44 33</span></a>
             </nav>
         </div>
     </header>
@@ -41,17 +41,17 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <span class="eyebrow">Paellas para llevar · Valdemorillo</span>
-            <h1>El sabor de la <span class="accent">paella auténtica</span><br>recién hecha para ti</h1>
-            <p class="hero-lead">Arroz bomba, sofrito a fuego lento y los mejores ingredientes. Eliges, llamas, y en minutos la recoges lista para disfrutar.</p>
+            <span class="eyebrow" data-lpda-text="hero_eyebrow">Paellas para llevar · Valdemorillo</span>
+            <h1 data-lpda-text="hero_title">El sabor de la <span class="accent">paella auténtica</span><br>recién hecha para ti</h1>
+            <p class="hero-lead" data-lpda-text="hero_lead">Arroz bomba, sofrito a fuego lento y los mejores ingredientes. Eliges, llamas, y en minutos la recoges lista para disfrutar.</p>
             <div class="hero-ctas">
                 <a href="#paellas" class="btn btn-primary">Ver paellas</a>
-                <a href="tel:+34918974433" class="btn btn-ghost">📞 Llamar para pedir</a>
+                <a href="tel:+34918974433" class="btn btn-ghost" data-lpda-tel="phone_tel">📞 Llamar para pedir</a>
             </div>
             <div class="hero-meta">
                 <span>🔥 Recién hechas</span>
-                <span>📍 Cerro Alarcón</span>
-                <span>⭐ Servicio del Restaurante Terraza Cerro</span>
+                <span>📍 <span data-lpda-text="hero_area">Cerro Alarcón</span></span>
+                <span>⭐ Servicio del <span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span></span>
             </div>
         </div>
         <a href="#paellas" class="scroll-indicator" aria-label="Bajar al menú">
@@ -112,7 +112,7 @@
     <section class="tip-band">
         <div class="container tip-band-inner">
             <span class="tip-icon">💡</span>
-            <p><strong>¿Cómo pido?</strong> Elige tu paella, haz clic en "Pide esta Paella" y llama al <a href="tel:+34918974433">918 97 44 33</a>. Aprovecha la llamada para añadir ensaladas y bebidas — Ana te prepara todo junto.</p>
+            <p><strong>¿Cómo pido?</strong> Elige tu paella, haz clic en "Pide esta Paella" y llama al <a href="tel:+34918974433" data-lpda-tel="phone_tel" data-lpda-text="phone_display">918 97 44 33</a>. Aprovecha la llamada para añadir ensaladas y bebidas — Ana te prepara todo junto.</p>
         </div>
     </section>
 
@@ -128,31 +128,32 @@
                         <span class="ci-icon">📞</span>
                         <div>
                             <strong>Teléfono de pedidos</strong>
-                            <a href="tel:+34918974433">918 97 44 33</a>
+                            <a href="tel:+34918974433" data-lpda-tel="phone_tel" data-lpda-text="phone_display">918 97 44 33</a>
                         </div>
                     </li>
                     <li>
                         <span class="ci-icon">📍</span>
                         <div>
                             <strong>Punto de recogida</strong>
-                            <span>Calle Río Sil, 2 — Cerro Alarcón, Valdemorillo</span>
+                            <span><span data-lpda-text="address_line1">Calle Río Sil, 2</span> — <span data-lpda-text="address_line2">Cerro Alarcón, Valdemorillo</span></span>
                         </div>
                     </li>
                     <li>
                         <span class="ci-icon">🍽️</span>
                         <div>
                             <strong>Servicio de</strong>
-                            <span>Restaurante Terraza Cerro</span>
+                            <span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span>
                         </div>
                     </li>
                 </ul>
 
-                <a href="tel:+34918974433" class="btn btn-primary btn-lg">📞 Llamar ahora · 918 97 44 33</a>
+                <a href="tel:+34918974433" class="btn btn-primary btn-lg" data-lpda-tel="phone_tel">📞 Llamar ahora · <span data-lpda-text="phone_display">918 97 44 33</span></a>
             </div>
 
             <div class="contact-map">
                 <iframe
-                    title="Mapa de recogida — Calle Río Sil 2, Cerro Alarcón"
+                    id="contactMap"
+                    title="Mapa de recogida"
                     src="https://www.google.com/maps?q=Calle+R%C3%ADo+Sil+2,+Cerro+Alarc%C3%B3n,+Valdemorillo&output=embed"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
@@ -165,30 +166,30 @@
         <div class="container footer-grid">
             <div>
                 <div class="brand brand-footer">
-                    <span class="brand-mark">A</span>
+                    <span class="brand-mark" data-lpda-logo>A</span>
                     <span class="brand-text">
-                        <span class="brand-name">Las Paellas de Ana</span>
-                        <span class="brand-sub">by Restaurante Terraza Cerro</span>
+                        <span class="brand-name" data-lpda-text="brand_name">Las Paellas de Ana</span>
+                        <span class="brand-sub" data-lpda-text="brand_subtitle">by Restaurante Terraza Cerro</span>
                     </span>
                 </div>
                 <p class="footer-copy">Paella tradicional para llevar, hecha con cariño en Valdemorillo.</p>
             </div>
             <div>
                 <h4>Pedidos</h4>
-                <a href="tel:+34918974433">📞 918 97 44 33</a>
+                <a href="tel:+34918974433" data-lpda-tel="phone_tel">📞 <span data-lpda-text="phone_display">918 97 44 33</span></a>
             </div>
             <div>
                 <h4>Recogida</h4>
-                <p>Calle Río Sil, 2<br>Cerro Alarcón, Valdemorillo</p>
+                <p><span data-lpda-text="address_line1">Calle Río Sil, 2</span><br><span data-lpda-text="address_line2">Cerro Alarcón, Valdemorillo</span></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© <span id="year"></span> Las Paellas de Ana · Restaurante Terraza Cerro</span>
+            <span>© <span id="year"></span> <span data-lpda-text="brand_name">Las Paellas de Ana</span> · <span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span></span>
             <a href="login.html" class="admin-link" rel="nofollow">Admin</a>
         </div>
     </footer>
 
-    <a href="tel:+34918974433" class="fab" aria-label="Llamar para pedir">
+    <a href="tel:+34918974433" class="fab" aria-label="Llamar para pedir" data-lpda-tel="phone_tel">
         <span class="fab-icon">📞</span>
         <span class="fab-text">Pedir</span>
     </a>
@@ -203,11 +204,11 @@
             <p class="modal-product">Has elegido: <strong id="modalProduct">—</strong></p>
             <p class="modal-text">Llama a Ana y te confirmamos el tiempo de elaboración. Aprovecha para añadir ensaladas y bebidas — te preparamos todo junto.</p>
 
-            <a href="tel:+34918974433" class="btn btn-primary btn-lg modal-call">📞 Llamar al 918 97 44 33</a>
+            <a href="tel:+34918974433" class="btn btn-primary btn-lg modal-call" data-lpda-tel="phone_tel">📞 Llamar al <span data-lpda-text="phone_display">918 97 44 33</span></a>
 
             <div class="modal-meta">
-                <div><strong>📍 Recogida</strong><span>Calle Río Sil, 2 · Cerro Alarcón, Valdemorillo</span></div>
-                <div><strong>🍽️ Servicio</strong><span>Restaurante Terraza Cerro</span></div>
+                <div><strong>📍 Recogida</strong><span><span data-lpda-text="address_line1">Calle Río Sil, 2</span> · <span data-lpda-text="address_line2">Cerro Alarcón, Valdemorillo</span></span></div>
+                <div><strong>🍽️ Servicio</strong><span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span></div>
             </div>
 
             <button class="btn btn-ghost btn-sm" type="button" data-close>Seguir mirando el menú</button>

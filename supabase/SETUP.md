@@ -17,12 +17,14 @@ gestionar los productos desde su dashboard. Solo se hace **una vez**.
 2. Clic en **New query**.
 3. Copia y pega el contenido completo de `supabase/schema.sql` (este repo).
 4. Clic en **Run**. Debe decir _Success. No rows returned_.
+5. Haz lo mismo con `supabase/migration-settings.sql` (añade la tabla
+   `site_settings` para que Ana pueda editar logo, slogan y contacto).
 
 Esto crea:
 - Tabla `products` con el catálogo inicial.
-- Políticas RLS (lectura pública de productos activos, escritura solo
-  para Ana autenticada).
-- Bucket de Storage `product-images` para subir fotos.
+- Tabla `site_settings` (logo, slogan, teléfono, dirección).
+- Políticas RLS (lectura pública, escritura solo para Ana autenticada).
+- Bucket de Storage `product-images` para subir fotos y logo.
 
 ## 3. Crear la cuenta de Ana
 
