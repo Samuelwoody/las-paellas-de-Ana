@@ -1,0 +1,42 @@
+{
+    "name": "Las Paellas de Ana",
+    "short_name": "Paellas de Ana",
+    "description": "Paellas auténticas para llevar en Valdemorillo. Pide por teléfono y recoge en Cerro Alarcón.",
+    "start_url": "/?utm_source=pwa",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#C0392B",
+    "background_color": "#FFF8E7",
+    "lang": "es-ES",
+    "dir": "ltr",
+    "categories": ["food", "business", "lifestyle"],
+    "icons": [
+        {
+            "src": "assets/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Llamar para pedir",
+            "short_name": "Llamar",
+            "description": "Llamar al 918 97 44 33 para pedir una paella",
+            "url": "/?utm_source=pwa_shortcut#contacto"
+        }
+    ]
+}
