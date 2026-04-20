@@ -191,14 +191,32 @@
     }
 
     // -------------------------- Site settings ----------------------------
+    function renderSlogan(text) {
+        // Escapa HTML, convierte *texto* en <span class="accent">texto</span>
+        // y los saltos de línea en <br>. Así Ana puede resaltar palabras.
+        const esc = String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        return esc
+            .replace(/\*([^*\n]+)\*/g, '<span class="accent">$1</span>')
+            .replace(/\n/g, '<br>');
+    }
+
     function applySiteSettings(settings) {
         if (!settings) return;
 
-        // Texto
+        // Texto: hero_title admite *…* para acento; resto va plano.
         document.querySelectorAll('[data-lpda-text]').forEach((el) => {
             const key = el.getAttribute('data-lpda-text');
-            if (settings[key] != null && String(settings[key]).trim() !== '') {
-                el.textContent = settings[key];
+            const val = settings[key];
+            if (val == null || String(val).trim() === '') return;
+            if (key === 'hero_title' || key === 'hero_lead') {
+                el.innerHTML = renderSlogan(val);
+            } else {
+                el.textContent = val;
             }
         });
 

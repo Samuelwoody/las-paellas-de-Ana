@@ -468,7 +468,15 @@ body.admin-body {
     background: #fff;
     width: 100%;
 }
-.admin-hint { font-size: 0.78rem; color: var(--ink-soft); margin: 0; font-weight: 400; }
+.admin-hint { font-size: 0.78rem; color: var(--ink-soft); margin: 0; font-weight: 400; line-height: 1.5; }
+.admin-hint code {
+    background: var(--sand);
+    color: var(--paprika-deep);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
 
 .admin-form-actions {
     display: flex;

@@ -10,7 +10,7 @@ create table if not exists public.site_settings (
     brand_subtitle   text          default 'by Restaurante Terraza Cerro',
     logo_url         text,
     hero_eyebrow     text          default 'Paellas para llevar · Valdemorillo',
-    hero_title       text          default 'El sabor de la paella auténtica recién hecha para ti',
+    hero_title       text          default 'El sabor de la *paella auténtica* recién hecha para ti',
     hero_lead        text          default 'Arroz bomba, sofrito a fuego lento y los mejores ingredientes. Eliges, llamas, y en minutos la recoges lista para disfrutar.',
     phone_display    text          default '918 97 44 33',
     phone_tel        text          default '+34918974433',
