@@ -90,6 +90,16 @@ body.admin-body {
     text-align: center;
 }
 
+@media (max-width: 520px) {
+    .auth-wrap { padding: 24px 14px; }
+    .auth-card { padding: 26px 22px; border-radius: 20px; }
+    .auth-card h1 { font-size: 1.5rem; }
+    .auth-form input[type="email"],
+    .auth-form input[type="password"] { font-size: 16px; padding: 13px 14px; }
+    .auth-submit { min-height: 48px; }
+    .auth-back { top: 14px; left: 14px; font-size: 0.82rem; }
+}
+
 /* -------------------- PANEL NAV -------------------- */
 .admin-nav {
     background: #fff;
@@ -534,15 +544,221 @@ body.admin-body {
     font-size: 0.9em;
 }
 
-/* -------------------- RESPONSIVE TABLE -------------------- */
-@media (max-width: 780px) {
-    .admin-main { padding: 22px 16px 60px; }
-    .admin-topbar { padding: 12px 16px; }
+/* -------------------- RESPONSIVE -------------------- */
+
+/* Ocultamos email del usuario ya cuando el espacio se empieza a
+   apretar, pero mantenemos logout y ver-web. */
+@media (max-width: 920px) {
     .admin-user { display: none; }
-    .admin-table { font-size: 0.88rem; }
-    .admin-table th, .admin-table td { padding: 10px 10px; }
-    .col-order, .col-price { display: none; }
-    .col-actions { width: auto; }
-    .col-actions .btn { padding: 6px 10px; font-size: 0.8rem; }
+}
+
+/* Móvil / tablet pequeña */
+@media (max-width: 720px) {
+
+    /* ---- Layout general ---- */
+    .admin-main { padding: 20px 14px 100px; }
+
+    /* ---- Topbar ---- */
+    .admin-topbar {
+        padding: 10px 14px;
+        gap: 8px;
+    }
+    .admin-brand { gap: 10px; min-width: 0; }
+    .admin-brand .brand-mark { width: 36px; height: 36px; font-size: 1.05rem; }
+    .admin-brand .brand-name { font-size: 0.92rem; }
     .admin-brand .brand-sub { display: none; }
+    .admin-actions { gap: 6px; flex-shrink: 0; }
+    .admin-actions .btn { padding: 8px 12px; font-size: 0.82rem; min-height: 38px; }
+    .admin-actions > a.btn-ghost-dark { display: none; } /* "Ver web pública" se oculta — se ve desde /index */
+
+    /* ---- Nav productos / ajustes ---- */
+    .admin-nav .container { padding: 0 8px; gap: 0; }
+    .admin-nav-btn {
+        padding: 12px 10px;
+        font-size: 0.88rem;
+        flex: 1;
+        text-align: center;
+    }
+
+    /* ---- Cabecera de sección ---- */
+    .admin-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+    .admin-header h1 { font-size: 1.5rem; }
+    .admin-header .btn { width: 100%; min-height: 46px; font-size: 0.95rem; }
+
+    /* ---- Filtros de categoría (scroll horizontal) ---- */
+    .admin-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin: 0 -14px 16px;
+        padding: 2px 14px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    .admin-tabs::-webkit-scrollbar { display: none; }
+    .admin-tab { flex: 0 0 auto; padding: 8px 14px; font-size: 0.85rem; }
+
+    /* ---- TABLA → TARJETAS EN MÓVIL ---- */
+    .admin-table-wrap {
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: visible;
+    }
+    .admin-table { display: block; font-size: 0.92rem; }
+    .admin-table thead { display: none; }
+    .admin-table tbody { display: block; }
+    .admin-table tr {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 6px 14px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: var(--shadow-sm);
+        padding: 14px;
+        margin-bottom: 12px;
+        align-items: start;
+    }
+    .admin-table tbody tr:hover { background: #fff; }
+    .admin-table tbody tr:last-child { margin-bottom: 0; }
+    .admin-table td {
+        display: block;
+        padding: 0;
+        border: none;
+        font-size: 0.9rem;
+        line-height: 1.35;
+    }
+
+    /* Col 1: imagen (ocupa dos filas en vertical) */
+    .admin-table td:nth-child(1) {
+        grid-row: 1 / span 2;
+        grid-column: 1;
+    }
+    .admin-img { width: 72px; height: 72px; }
+
+    /* Col 2: nombre + descripción */
+    .admin-table td:nth-child(2) { grid-column: 2; align-self: center; }
+    .admin-desc { max-width: 100%; }
+
+    /* Cols 3-7: meta (categoría, etiqueta, precio, orden, estado) en una
+       sola línea flex debajo del nombre, ocupando todo el ancho. */
+    .admin-table td:nth-child(3),
+    .admin-table td:nth-child(4),
+    .admin-table td:nth-child(5),
+    .admin-table td:nth-child(6),
+    .admin-table td:nth-child(7) {
+        grid-column: 1 / -1;
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+    }
+    .admin-table td:nth-child(3) { /* categoría */ }
+    .admin-table td:nth-child(3)::before {
+        content: '';
+        width: 4px; height: 4px; border-radius: 50%;
+        background: var(--ink-soft);
+        margin-right: 4px;
+    }
+    .admin-table td:nth-child(6) { display: none; } /* orden — no importa en móvil */
+
+    /* Col 8: acciones — fila completa, botones grandes */
+    .admin-table td.col-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        text-align: left;
+        white-space: normal;
+    }
+    .admin-table td.col-actions .btn {
+        flex: 1;
+        min-height: 42px;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+    .admin-table td.col-actions .btn + .btn { margin-left: 0; }
+
+    /* Estado vacío / cargando: fila completa */
+    .admin-table-empty {
+        grid-column: 1 / -1 !important;
+        text-align: center !important;
+        padding: 26px 16px !important;
+    }
+
+    /* ---- Formularios: inputs a 16px para evitar zoom en iOS ---- */
+    .admin-field input[type="text"],
+    .admin-field input[type="email"],
+    .admin-field input[type="password"],
+    .admin-field input[type="number"],
+    .admin-field input[type="url"],
+    .admin-field select,
+    .admin-field textarea {
+        font-size: 16px;
+        padding: 12px 13px;
+    }
+
+    /* ---- Modales: cuerpo completo con menos padding ---- */
+    .admin-modal { padding: 0; align-items: flex-end; }
+    .admin-modal-card {
+        max-width: 100%;
+        width: 100%;
+        max-height: 94vh;
+        border-radius: 20px 20px 0 0;
+        padding: 22px 18px 24px;
+        animation: slideUp 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+    .admin-modal-card h2 { font-size: 1.3rem; margin-bottom: 16px; }
+    .admin-modal-sm {
+        border-radius: 20px;
+        margin: auto 14px;
+        max-height: auto;
+    }
+
+    /* Acciones del formulario apiladas en pantallas estrechas */
+    .admin-form-actions {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+    .admin-form-actions .btn { width: 100%; min-height: 46px; }
+
+    /* Ajustes: quita el sticky y el space-between que no tienen sentido */
+    .admin-settings-actions {
+        flex-direction: column-reverse;
+        position: static;
+        background: transparent;
+        padding-top: 0;
+    }
+
+    /* ---- Fieldsets (bloques de ajustes) más compactos ---- */
+    .admin-card-form { padding: 18px 16px; }
+    .admin-card-form legend { font-size: 1.05rem; }
+
+    /* ---- Logo preview más chico para no ocupar demasiado ---- */
+    .admin-logo-preview { width: 100px; height: 100px; }
+
+    /* Notice (mensajes de éxito/error) */
+    .admin-notice { font-size: 0.9rem; }
+}
+
+/* Teléfonos estrechos */
+@media (max-width: 380px) {
+    .admin-topbar { padding: 8px 12px; }
+    .admin-brand { gap: 8px; }
+    .admin-brand .brand-name { font-size: 0.85rem; }
+    .admin-actions .btn { padding: 7px 10px; font-size: 0.78rem; }
+    .admin-nav-btn { padding: 10px 6px; font-size: 0.82rem; }
+    .admin-table tr { grid-template-columns: 60px 1fr; padding: 12px; }
+    .admin-img { width: 60px; height: 60px; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
 }
