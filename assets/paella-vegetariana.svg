@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de paella vegetariana con verduras">
+  <defs>
+    <radialGradient id="bgV" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#F4FBE1"/>
+      <stop offset="100%" stop-color="#D3E6A8"/>
+    </radialGradient>
+    <radialGradient id="panV" cx="50%" cy="48%" r="55%">
+      <stop offset="60%" stop-color="#2d2118"/>
+      <stop offset="100%" stop-color="#0f0906"/>
+    </radialGradient>
+    <radialGradient id="riceV" cx="50%" cy="48%" r="50%">
+      <stop offset="0%" stop-color="#F5D061"/>
+      <stop offset="70%" stop-color="#E4A72F"/>
+      <stop offset="100%" stop-color="#B87C18"/>
+    </radialGradient>
+    <radialGradient id="artiV" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#B8CE6B"/>
+      <stop offset="100%" stop-color="#4F6B1E"/>
+    </radialGradient>
+    <linearGradient id="pepRedV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E94B35"/>
+      <stop offset="100%" stop-color="#A82414"/>
+    </linearGradient>
+    <linearGradient id="pepYelV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7CC3E"/>
+      <stop offset="100%" stop-color="#C8931A"/>
+    </linearGradient>
+    <linearGradient id="beanV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7AA33B"/>
+      <stop offset="100%" stop-color="#4F7020"/>
+    </linearGradient>
+    <radialGradient id="tomV" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#F98A6E"/>
+      <stop offset="100%" stop-color="#B93520"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgV)"/>
+  <ellipse cx="400" cy="555" rx="300" ry="22" fill="rgba(0,0,0,0.18)"/>
+
+  <!-- Pan handles -->
+  <circle cx="110" cy="300" r="18" fill="#1a110a"/>
+  <circle cx="690" cy="300" r="18" fill="#1a110a"/>
+  <rect x="92" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+  <rect x="670" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+
+  <ellipse cx="400" cy="310" rx="290" ry="255" fill="url(#panV)"/>
+  <ellipse cx="400" cy="300" rx="268" ry="232" fill="url(#riceV)"/>
+
+  <g fill="#fff4c6" opacity="0.55">
+    <circle cx="260" cy="220" r="2.2"/><circle cx="320" cy="270" r="2"/><circle cx="390" cy="215" r="2"/><circle cx="460" cy="265" r="2.4"/><circle cx="520" cy="220" r="2"/><circle cx="560" cy="280" r="2.2"/>
+    <circle cx="300" cy="340" r="2"/><circle cx="370" cy="380" r="2.2"/><circle cx="430" cy="340" r="2"/><circle cx="500" cy="390" r="2.3"/><circle cx="560" cy="350" r="2"/>
+    <circle cx="240" cy="290" r="2"/><circle cx="600" cy="300" r="2.2"/><circle cx="400" cy="430" r="2"/><circle cx="320" cy="440" r="2"/><circle cx="490" cy="440" r="2.2"/>
+  </g>
+
+  <!-- Artichoke halves -->
+  <g transform="translate(290 240)">
+    <path d="M-52 20 Q -52 -48 0 -48 Q 52 -48 52 20 Z" fill="url(#artiV)"/>
+    <path d="M-40 10 q 0 -28 40 -28 q 40 0 40 28" fill="none" stroke="#2c3e0d" stroke-width="1.5" opacity="0.55"/>
+    <path d="M-26 -2 q 0 -20 26 -20 q 26 0 26 20" fill="none" stroke="#2c3e0d" stroke-width="1.5" opacity="0.55"/>
+    <path d="M-10 -14 q 0 -10 10 -10 q 10 0 10 10" fill="none" stroke="#2c3e0d" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="0" cy="-24" r="3" fill="#f5d061"/>
+  </g>
+
+  <g transform="translate(510 360)">
+    <path d="M-52 20 Q -52 -48 0 -48 Q 52 -48 52 20 Z" fill="url(#artiV)"/>
+    <path d="M-40 10 q 0 -28 40 -28 q 40 0 40 28" fill="none" stroke="#2c3e0d" stroke-width="1.5" opacity="0.55"/>
+    <path d="M-26 -2 q 0 -20 26 -20 q 26 0 26 20" fill="none" stroke="#2c3e0d" stroke-width="1.5" opacity="0.55"/>
+    <path d="M-10 -14 q 0 -10 10 -10 q 10 0 10 10" fill="none" stroke="#2c3e0d" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="0" cy="-24" r="3" fill="#f5d061"/>
+  </g>
+
+  <!-- Red pepper strips -->
+  <g fill="url(#pepRedV)">
+    <path d="M430 200 q 60 -10 90 10 q -20 22 -80 14 q -20 -4 -10 -24 z"/>
+    <path d="M220 360 q 54 -8 80 14 q -26 20 -80 8 q -14 -6 0 -22 z"/>
+    <path d="M400 440 q 55 -6 78 20 q -30 14 -76 0 q -12 -8 -2 -20 z"/>
+  </g>
+
+  <!-- Yellow pepper strips -->
+  <g fill="url(#pepYelV)">
+    <path d="M520 240 q 50 -8 72 14 q -22 18 -64 8 q -20 -6 -8 -22 z"/>
+    <path d="M260 410 q 46 -10 72 12 q -24 18 -68 6 q -14 -6 -4 -18 z"/>
+  </g>
+
+  <!-- Green beans -->
+  <g fill="url(#beanV)">
+    <path d="M470 280 q 40 -20 88 -4 q -8 14 -42 14 q -30 0 -46 -10 z"/>
+    <path d="M220 270 q 44 -18 82 2 q -20 18 -58 12 q -26 -4 -24 -14 z"/>
+    <path d="M370 460 q 46 -12 72 12 q -26 16 -64 6 q -20 -6 -8 -18 z"/>
+    <path d="M550 420 q 40 -12 72 8 q -20 18 -58 10 q -22 -4 -14 -18 z"/>
+  </g>
+
+  <!-- Cherry tomatoes -->
+  <g>
+    <circle cx="360" cy="210" r="14" fill="url(#tomV)"/>
+    <path d="M354 198 q 6 -4 12 0 l -2 -8 l -8 0 z" fill="#4a7020"/>
+    <circle cx="610" cy="370" r="13" fill="url(#tomV)"/>
+    <path d="M604 358 q 6 -4 12 0 l -2 -8 l -8 0 z" fill="#4a7020"/>
+    <circle cx="330" cy="390" r="12" fill="url(#tomV)"/>
+  </g>
+
+  <!-- Parsley accents -->
+  <g fill="#4a7a22">
+    <circle cx="400" cy="300" r="3"/><circle cx="406" cy="296" r="2"/><circle cx="394" cy="304" r="2"/>
+    <circle cx="480" cy="320" r="2.5"/><circle cx="476" cy="316" r="1.8"/>
+    <circle cx="340" cy="320" r="2.5"/>
+  </g>
+
+  <!-- Lemon wedge corner -->
+  <g transform="translate(600 160)">
+    <path d="M0 0 L 60 0 A 60 60 0 0 0 0 -60 Z" fill="#F7D04B"/>
+    <path d="M4 -4 L 52 -4 A 52 52 0 0 0 4 -52 Z" fill="#FEEC8F" opacity="0.7"/>
+    <line x1="6" y1="-6" x2="46" y2="-6" stroke="#d9a81a" stroke-width="1.4"/>
+    <line x1="6" y1="-6" x2="6" y2="-46" stroke="#d9a81a" stroke-width="1.4"/>
+  </g>
+</svg>

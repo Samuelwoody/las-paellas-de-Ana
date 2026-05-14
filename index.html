@@ -10,17 +10,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23F5B400'/%3E%3Ccircle cx='50' cy='50' r='35' fill='%23C0392B'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23FFF8E7' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Paellas de Ana">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Las Paellas de Ana">
+    <meta name="msapplication-TileColor" content="#C0392B">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="config.js" defer></script>
+    <script src="assets/js/supabase-client.js" defer></script>
+    <script src="assets/js/install-prompt.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header class="navbar" id="navbar">
         <div class="container nav-content">
             <a href="#inicio" class="brand">
-                <span class="brand-mark">A</span>
+                <span class="brand-mark" data-lpda-logo>A</span>
                 <span class="brand-text">
-                    <span class="brand-name">Las Paellas de Ana</span>
-                    <span class="brand-sub">by Restaurante Terraza Cerro</span>
+                    <span class="brand-name" data-lpda-text="brand_name">Las Paellas de Ana</span>
+                    <span class="brand-sub" data-lpda-text="brand_subtitle">by Restaurante Terraza Cerro</span>
                 </span>
             </a>
             <nav class="nav-links">
@@ -28,7 +42,7 @@
                 <a href="#ensaladas">Ensaladas</a>
                 <a href="#bebidas">Bebidas</a>
                 <a href="#contacto">Contacto</a>
-                <a href="tel:+34918974433" class="nav-cta">📞 918 97 44 33</a>
+                <a href="tel:+34918974433" class="nav-cta" data-lpda-tel="phone_tel">📞 <span data-lpda-text="phone_display">918 97 44 33</span></a>
             </nav>
         </div>
     </header>
@@ -37,17 +51,17 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <span class="eyebrow">Paellas para llevar · Valdemorillo</span>
-            <h1>El sabor de la <span class="accent">paella auténtica</span><br>recién hecha para ti</h1>
-            <p class="hero-lead">Arroz bomba, sofrito a fuego lento y los mejores ingredientes. Eliges, llamas, y en minutos la recoges lista para disfrutar.</p>
+            <span class="eyebrow" data-lpda-text="hero_eyebrow">Paellas para llevar · Valdemorillo</span>
+            <h1 data-lpda-text="hero_title">El sabor de la <span class="accent">paella auténtica</span><br>recién hecha para ti</h1>
+            <p class="hero-lead" data-lpda-text="hero_lead">Arroz bomba, sofrito a fuego lento y los mejores ingredientes. Eliges, llamas, y en minutos la recoges lista para disfrutar.</p>
             <div class="hero-ctas">
                 <a href="#paellas" class="btn btn-primary">Ver paellas</a>
-                <a href="tel:+34918974433" class="btn btn-ghost">📞 Llamar para pedir</a>
+                <a href="tel:+34918974433" class="btn btn-ghost" data-lpda-tel="phone_tel">📞 Llamar para pedir</a>
             </div>
             <div class="hero-meta">
                 <span>🔥 Recién hechas</span>
-                <span>📍 Cerro Alarcón</span>
-                <span>⭐ Servicio del Restaurante Terraza Cerro</span>
+                <span>📍 <span data-lpda-text="hero_area">Cerro Alarcón</span></span>
+                <span>⭐ Servicio del <span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span></span>
             </div>
         </div>
         <a href="#paellas" class="scroll-indicator" aria-label="Bajar al menú">
@@ -71,56 +85,8 @@
                 <p>Elaboradas al momento con ingredientes frescos. Haz clic en la que más te apetezca y te llamamos al instante.</p>
             </div>
 
-            <div class="menu-grid paellas-grid">
-
-                <article class="card" data-product="Paella de Carne">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1605209062535-69bea0d4d65e?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella de Carne</h3>
-                            <span class="tag tag-meat">Carne</span>
-                        </div>
-                        <p>Pollo de corral, conejo, judía verde, garrofón y nuestro sofrito secreto.</p>
-                        <button class="btn btn-order" type="button">Pedir esta paella</button>
-                    </div>
-                </article>
-
-                <article class="card" data-product="Paella Vegetariana">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella Vegetariana</h3>
-                            <span class="tag tag-veg">Vegetariana</span>
-                        </div>
-                        <p>Alcachofa, pimientos, judía verde, champiñón, garrofón y azafrán.</p>
-                        <button class="btn btn-order" type="button">Pedir esta paella</button>
-                    </div>
-                </article>
-
-                <article class="card" data-product="Paella de Marisco">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella de Marisco</h3>
-                            <span class="tag tag-sea">Marisco</span>
-                        </div>
-                        <p>Gambas, mejillones, calamar y almejas sobre fumet de pescado.</p>
-                        <button class="btn btn-order" type="button">Pedir esta paella</button>
-                    </div>
-                </article>
-
-                <article class="card" data-product="Paella Mixta">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Paella Mixta</h3>
-                            <span class="tag tag-mix">Mixta</span>
-                        </div>
-                        <p>Lo mejor del mar y la tierra: pollo, gambas, mejillones y calamar.</p>
-                        <button class="btn btn-order" type="button">Pedir esta paella</button>
-                    </div>
-                </article>
-
+            <div class="menu-grid paellas-grid" id="paellas-grid" data-category="paella">
+                <div class="menu-grid-loading">Cargando paellas…</div>
             </div>
         </div>
     </section>
@@ -128,35 +94,13 @@
     <section id="ensaladas" class="menu-section alt">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">Para acompañar</span>
+                <span class="eyebrow">Para acompañar tu paella</span>
                 <h2>Ensaladas frescas</h2>
-                <p>El contrapunto perfecto a una buena paella.</p>
+                <p>El contrapunto perfecto. Coméntaselo a Ana al llamar y te lo añadimos al pedido.</p>
             </div>
 
-            <div class="menu-grid two-col">
-                <article class="card" data-product="Ensalada Fresca de la Casa">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Ensalada Fresca de la Casa</h3>
-                            <span class="tag tag-veg">Fresca</span>
-                        </div>
-                        <p>Mezclum, tomate, cebolla morada, aceitunas y aliño de la casa.</p>
-                        <button class="btn btn-order" type="button">Pedir esta ensalada</button>
-                    </div>
-                </article>
-
-                <article class="card" data-product="Ensaladilla Rusa">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Ensaladilla Rusa</h3>
-                            <span class="tag tag-classic">Clásica</span>
-                        </div>
-                        <p>Receta de toda la vida: patata, atún, huevo, zanahoria y mayonesa casera.</p>
-                        <button class="btn btn-order" type="button">Pedir esta ensaladilla</button>
-                    </div>
-                </article>
+            <div class="menu-grid two-col" id="ensaladas-grid" data-category="ensalada">
+                <div class="menu-grid-loading">Cargando ensaladas…</div>
             </div>
         </div>
     </section>
@@ -166,46 +110,19 @@
             <div class="section-header">
                 <span class="eyebrow">Para brindar</span>
                 <h2>Refrescos, cervezas y vinos</h2>
-                <p>Añade tu bebida favorita al pedido.</p>
+                <p>Todas las bebidas se piden por teléfono junto con tu paella. Dile a Ana lo que te apetece.</p>
             </div>
 
-            <div class="menu-grid three-col">
-                <article class="card card-sm" data-product="Refrescos">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Refrescos</h3>
-                            <span class="tag tag-cool">Fríos</span>
-                        </div>
-                        <p>Coca-Cola, Fanta, Aquarius, agua mineral y más.</p>
-                        <button class="btn btn-order" type="button">Añadir al pedido</button>
-                    </div>
-                </article>
-
-                <article class="card card-sm" data-product="Cervezas">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Cervezas</h3>
-                            <span class="tag tag-cool">Bien fría</span>
-                        </div>
-                        <p>Mahou, Estrella Galicia, Alhambra y opción 0,0.</p>
-                        <button class="btn btn-order" type="button">Añadir al pedido</button>
-                    </div>
-                </article>
-
-                <article class="card card-sm" data-product="Vinos">
-                    <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80')"></div>
-                    <div class="card-body">
-                        <div class="card-head">
-                            <h3>Vinos</h3>
-                            <span class="tag tag-wine">Selección</span>
-                        </div>
-                        <p>Tintos de Rioja y Ribera, blancos Verdejo y Rueda, rosados.</p>
-                        <button class="btn btn-order" type="button">Añadir al pedido</button>
-                    </div>
-                </article>
+            <div class="menu-grid three-col" id="bebidas-grid" data-category="bebida">
+                <div class="menu-grid-loading">Cargando bebidas…</div>
             </div>
+        </div>
+    </section>
+
+    <section class="tip-band">
+        <div class="container tip-band-inner">
+            <span class="tip-icon">💡</span>
+            <p><strong>¿Cómo pido?</strong> Elige tu paella, haz clic en "Pide esta Paella" y llama al <a href="tel:+34918974433" data-lpda-tel="phone_tel" data-lpda-text="phone_display">918 97 44 33</a>. Aprovecha la llamada para añadir ensaladas y bebidas — Ana te prepara todo junto.</p>
         </div>
     </section>
 
@@ -221,31 +138,32 @@
                         <span class="ci-icon">📞</span>
                         <div>
                             <strong>Teléfono de pedidos</strong>
-                            <a href="tel:+34918974433">918 97 44 33</a>
+                            <a href="tel:+34918974433" data-lpda-tel="phone_tel" data-lpda-text="phone_display">918 97 44 33</a>
                         </div>
                     </li>
                     <li>
                         <span class="ci-icon">📍</span>
                         <div>
                             <strong>Punto de recogida</strong>
-                            <span>Calle Río Sil, 2 — Cerro Alarcón, Valdemorillo</span>
+                            <span><span data-lpda-text="address_line1">Calle Río Sil, 2</span> — <span data-lpda-text="address_line2">Cerro Alarcón, Valdemorillo</span></span>
                         </div>
                     </li>
                     <li>
                         <span class="ci-icon">🍽️</span>
                         <div>
                             <strong>Servicio de</strong>
-                            <span>Restaurante Terraza Cerro</span>
+                            <span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span>
                         </div>
                     </li>
                 </ul>
 
-                <a href="tel:+34918974433" class="btn btn-primary btn-lg">📞 Llamar ahora · 918 97 44 33</a>
+                <a href="tel:+34918974433" class="btn btn-primary btn-lg" data-lpda-tel="phone_tel">📞 Llamar ahora · <span data-lpda-text="phone_display">918 97 44 33</span></a>
             </div>
 
             <div class="contact-map">
                 <iframe
-                    title="Mapa de recogida — Calle Río Sil 2, Cerro Alarcón"
+                    id="contactMap"
+                    title="Mapa de recogida"
                     src="https://www.google.com/maps?q=Calle+R%C3%ADo+Sil+2,+Cerro+Alarc%C3%B3n,+Valdemorillo&output=embed"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
@@ -258,29 +176,30 @@
         <div class="container footer-grid">
             <div>
                 <div class="brand brand-footer">
-                    <span class="brand-mark">A</span>
+                    <span class="brand-mark" data-lpda-logo>A</span>
                     <span class="brand-text">
-                        <span class="brand-name">Las Paellas de Ana</span>
-                        <span class="brand-sub">by Restaurante Terraza Cerro</span>
+                        <span class="brand-name" data-lpda-text="brand_name">Las Paellas de Ana</span>
+                        <span class="brand-sub" data-lpda-text="brand_subtitle">by Restaurante Terraza Cerro</span>
                     </span>
                 </div>
                 <p class="footer-copy">Paella tradicional para llevar, hecha con cariño en Valdemorillo.</p>
             </div>
             <div>
                 <h4>Pedidos</h4>
-                <a href="tel:+34918974433">📞 918 97 44 33</a>
+                <a href="tel:+34918974433" data-lpda-tel="phone_tel">📞 <span data-lpda-text="phone_display">918 97 44 33</span></a>
             </div>
             <div>
                 <h4>Recogida</h4>
-                <p>Calle Río Sil, 2<br>Cerro Alarcón, Valdemorillo</p>
+                <p><span data-lpda-text="address_line1">Calle Río Sil, 2</span><br><span data-lpda-text="address_line2">Cerro Alarcón, Valdemorillo</span></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© <span id="year"></span> Las Paellas de Ana · Restaurante Terraza Cerro</span>
+            <span>© <span id="year"></span> <span data-lpda-text="brand_name">Las Paellas de Ana</span> · <span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span></span>
+            <a href="login.html" class="admin-link" rel="nofollow">Admin</a>
         </div>
     </footer>
 
-    <a href="tel:+34918974433" class="fab" aria-label="Llamar para pedir">
+    <a href="tel:+34918974433" class="fab" aria-label="Llamar para pedir" data-lpda-tel="phone_tel">
         <span class="fab-icon">📞</span>
         <span class="fab-text">Pedir</span>
     </a>
@@ -291,21 +210,47 @@
             <button class="modal-close" type="button" data-close aria-label="Cerrar">×</button>
             <div class="modal-icon">📞</div>
             <span class="eyebrow">Pedido por teléfono</span>
-            <h3 id="modalTitle">Pide tu paella</h3>
+            <h3 id="modalTitle">¡Vamos a preparar tu paella!</h3>
             <p class="modal-product">Has elegido: <strong id="modalProduct">—</strong></p>
-            <p class="modal-text">Llámanos y te confirmamos el tiempo de elaboración. Tu pedido estará recién hecho cuando llegues.</p>
+            <p class="modal-text">Llama a Ana y te confirmamos el tiempo de elaboración. Aprovecha para añadir ensaladas y bebidas — te preparamos todo junto.</p>
 
-            <a href="tel:+34918974433" class="btn btn-primary btn-lg modal-call">📞 Llamar al 918 97 44 33</a>
+            <a href="tel:+34918974433" class="btn btn-primary btn-lg modal-call" data-lpda-tel="phone_tel">📞 Llamar al <span data-lpda-text="phone_display">918 97 44 33</span></a>
 
             <div class="modal-meta">
-                <div><strong>📍 Recogida</strong><span>Calle Río Sil, 2 · Cerro Alarcón, Valdemorillo</span></div>
-                <div><strong>🍽️ Servicio</strong><span>Restaurante Terraza Cerro</span></div>
+                <div><strong>📍 Recogida</strong><span><span data-lpda-text="address_line1">Calle Río Sil, 2</span> · <span data-lpda-text="address_line2">Cerro Alarcón, Valdemorillo</span></span></div>
+                <div><strong>🍽️ Servicio</strong><span data-lpda-text="restaurant_name">Restaurante Terraza Cerro</span></div>
             </div>
 
             <button class="btn btn-ghost btn-sm" type="button" data-close>Seguir mirando el menú</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Popup para instalar la web como app en el móvil / escritorio -->
+    <div class="install-popup" id="installPopup" role="dialog" aria-modal="true" aria-labelledby="installTitle" hidden>
+        <div class="install-popup-backdrop" data-close></div>
+        <div class="install-popup-card" role="document">
+            <button type="button" class="install-popup-close" data-close aria-label="Cerrar">×</button>
+            <div class="install-popup-icon">
+                <img src="assets/icon-192.png" alt="" width="88" height="88">
+            </div>
+            <h3 id="installTitle">Ten Las Paellas de Ana<br>en un toque</h3>
+            <p class="install-popup-lead">Añade la web a tu pantalla de inicio y pide tu paella en dos clics, sin abrir el navegador.</p>
+
+            <div class="install-popup-actions">
+                <button type="button" class="btn btn-primary btn-lg install-popup-cta" id="installCta">📲 Instalar ahora</button>
+                <button type="button" class="btn btn-ghost-dark install-popup-later" data-close>Ahora no</button>
+            </div>
+
+            <div class="install-popup-ios" id="installIosHelp" hidden>
+                <p class="install-popup-step">Para instalar en iPhone:</p>
+                <ol>
+                    <li>Pulsa el icono de <strong>Compartir</strong> <span class="ios-share">⬆️</span> abajo.</li>
+                    <li>Desliza y elige <strong>"Añadir a pantalla de inicio"</strong>.</li>
+                    <li>Pulsa <strong>Añadir</strong>.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

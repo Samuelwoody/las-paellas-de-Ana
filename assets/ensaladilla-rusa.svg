@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de ensaladilla rusa">
+  <defs>
+    <radialGradient id="bgER" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#F0D9A0"/>
+    </radialGradient>
+    <radialGradient id="bowlER" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DDE3E8"/>
+    </radialGradient>
+    <radialGradient id="mayoER" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FFFBE5"/>
+      <stop offset="100%" stop-color="#E8D592"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgER)"/>
+  <ellipse cx="400" cy="540" rx="260" ry="18" fill="rgba(0,0,0,0.15)"/>
+
+  <!-- Bowl -->
+  <ellipse cx="400" cy="340" rx="260" ry="55" fill="#b5bcc2"/>
+  <path d="M140 340 Q 180 500 400 510 Q 620 500 660 340 Z" fill="url(#bowlER)"/>
+
+  <!-- Mayo salad mound -->
+  <ellipse cx="400" cy="330" rx="240" ry="45" fill="url(#mayoER)"/>
+  <path d="M170 330 Q 260 270 400 275 Q 540 270 630 330" fill="url(#mayoER)"/>
+
+  <!-- Texture: potato chunks (cream/yellow) -->
+  <g fill="#fcebab" stroke="#c8a84b" stroke-width="1">
+    <rect x="260" y="300" width="26" height="16" rx="3"/>
+    <rect x="310" y="288" width="22" height="14" rx="3"/>
+    <rect x="355" y="305" width="28" height="16" rx="3"/>
+    <rect x="400" y="292" width="24" height="14" rx="3"/>
+    <rect x="445" y="300" width="26" height="16" rx="3"/>
+    <rect x="490" y="290" width="22" height="14" rx="3"/>
+    <rect x="530" y="302" width="24" height="16" rx="3"/>
+    <rect x="285" y="320" width="22" height="14" rx="3"/>
+    <rect x="375" y="322" width="24" height="14" rx="3"/>
+    <rect x="465" y="324" width="22" height="14" rx="3"/>
+  </g>
+
+  <!-- Peas (green dots) -->
+  <g fill="#6aa030">
+    <circle cx="300" cy="295" r="5"/><circle cx="340" cy="320" r="5"/><circle cx="390" cy="300" r="5"/><circle cx="430" cy="315" r="5"/><circle cx="480" cy="298" r="5"/><circle cx="520" cy="320" r="5"/>
+    <circle cx="270" cy="320" r="4.5"/><circle cx="360" cy="305" r="4.5"/><circle cx="410" cy="325" r="4.5"/><circle cx="460" cy="310" r="4.5"/><circle cx="550" cy="305" r="4.5"/>
+  </g>
+
+  <!-- Carrots (orange cubes) -->
+  <g fill="#EE7A2A">
+    <rect x="250" y="290" width="10" height="10" rx="2"/>
+    <rect x="320" y="310" width="10" height="10" rx="2"/>
+    <rect x="380" y="285" width="10" height="10" rx="2"/>
+    <rect x="450" y="315" width="10" height="10" rx="2"/>
+    <rect x="520" y="288" width="10" height="10" rx="2"/>
+    <rect x="500" y="320" width="10" height="10" rx="2"/>
+    <rect x="290" y="318" width="10" height="10" rx="2"/>
+    <rect x="420" y="300" width="10" height="10" rx="2"/>
+  </g>
+
+  <!-- Tuna flakes (light brown) -->
+  <g fill="#b07a3a" opacity="0.85">
+    <path d="M280 310 q 8 -2 14 2 q -6 4 -14 -2 z"/>
+    <path d="M370 295 q 8 -2 14 2 q -6 4 -14 -2 z"/>
+    <path d="M440 310 q 8 -2 14 2 q -6 4 -14 -2 z"/>
+    <path d="M510 295 q 8 -2 14 2 q -6 4 -14 -2 z"/>
+  </g>
+
+  <!-- Hard-boiled egg slice on top -->
+  <g transform="translate(400 280)">
+    <ellipse cx="0" cy="0" rx="36" ry="20" fill="#FFFCEB" stroke="#e5dca5" stroke-width="1.5"/>
+    <ellipse cx="0" cy="0" rx="14" ry="10" fill="#F5C23E"/>
+  </g>
+
+  <!-- Red pepper strip garnish -->
+  <path d="M320 270 q 50 -10 80 5 q -30 12 -70 8 q -20 -2 -10 -13 z" fill="#D9452F"/>
+
+  <!-- Olives garnish -->
+  <ellipse cx="470" cy="272" rx="10" ry="13" fill="#2f3d18"/>
+  <ellipse cx="340" cy="258" rx="9" ry="12" fill="#2f3d18"/>
+
+  <!-- Parsley -->
+  <g fill="#4a7a22">
+    <circle cx="400" cy="268" r="3"/><circle cx="406" cy="264" r="2"/>
+  </g>
+</svg>

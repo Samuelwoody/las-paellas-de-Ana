@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de ensalada fresca">
+  <defs>
+    <radialGradient id="bgEF" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#F3FBE4"/>
+      <stop offset="100%" stop-color="#C7E1A0"/>
+    </radialGradient>
+    <radialGradient id="bowlEF" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E5E9EC"/>
+    </radialGradient>
+    <linearGradient id="lettuceEF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8ABF3A"/>
+      <stop offset="100%" stop-color="#406d17"/>
+    </linearGradient>
+    <radialGradient id="tomEF" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#F98A6E"/>
+      <stop offset="100%" stop-color="#B93520"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgEF)"/>
+  <ellipse cx="400" cy="540" rx="260" ry="18" fill="rgba(0,0,0,0.15)"/>
+
+  <!-- Bowl -->
+  <ellipse cx="400" cy="340" rx="260" ry="55" fill="#b5bcc2"/>
+  <path d="M140 340 Q 180 500 400 510 Q 620 500 660 340 Z" fill="url(#bowlEF)"/>
+  <ellipse cx="400" cy="340" rx="240" ry="44" fill="#2d6b1b" opacity="0.25"/>
+
+  <!-- Lettuce leaves -->
+  <g fill="url(#lettuceEF)">
+    <path d="M260 290 q -30 -40 20 -70 q 40 -10 50 30 q 10 40 -30 60 q -30 12 -40 -20 z"/>
+    <path d="M330 260 q -10 -50 50 -60 q 60 10 50 50 q -10 40 -50 50 q -40 0 -50 -40 z"/>
+    <path d="M430 255 q 10 -50 70 -50 q 60 10 60 50 q 0 40 -50 50 q -60 0 -80 -50 z"/>
+    <path d="M540 280 q 30 -40 70 -20 q 30 30 -10 60 q -40 20 -60 -40 z"/>
+  </g>
+  <g fill="#6a9c2a" opacity="0.7">
+    <path d="M300 310 q -10 -20 10 -30 q 20 0 20 20 q 0 20 -30 10 z"/>
+    <path d="M380 305 q -10 -25 20 -30 q 25 0 25 20 q -5 25 -45 10 z"/>
+    <path d="M470 305 q 10 -25 40 -20 q 20 10 15 25 q -20 20 -55 -5 z"/>
+    <path d="M540 320 q 20 -20 40 -10 q 15 15 -5 25 q -30 10 -35 -15 z"/>
+  </g>
+
+  <!-- Tomatoes -->
+  <circle cx="320" cy="330" r="22" fill="url(#tomEF)"/>
+  <path d="M310 315 q 10 -6 20 0 l -4 -10 l -12 0 z" fill="#4a7020"/>
+  <circle cx="460" cy="340" r="20" fill="url(#tomEF)"/>
+  <path d="M452 326 q 8 -5 16 0 l -3 -8 l -10 0 z" fill="#4a7020"/>
+  <circle cx="540" cy="330" r="18" fill="url(#tomEF)"/>
+
+  <!-- Olives -->
+  <ellipse cx="360" cy="350" rx="10" ry="13" fill="#2f3d18"/>
+  <ellipse cx="500" cy="355" rx="10" ry="13" fill="#2f3d18"/>
+  <ellipse cx="420" cy="310" rx="10" ry="13" fill="#2f3d18"/>
+
+  <!-- Onion rings -->
+  <g stroke="#8a73b4" stroke-width="4" fill="none" opacity="0.9">
+    <ellipse cx="400" cy="300" rx="30" ry="8"/>
+    <ellipse cx="395" cy="295" rx="24" ry="6"/>
+  </g>
+
+  <!-- Oil drizzle -->
+  <g stroke="#c79a1f" stroke-width="2.5" fill="none" opacity="0.8" stroke-linecap="round">
+    <path d="M240 265 q 80 30 180 -5 q 120 -35 200 10"/>
+  </g>
+</svg>

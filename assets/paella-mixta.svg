@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de paella mixta con carne y marisco">
+  <defs>
+    <radialGradient id="bgX" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#FFE8CE"/>
+      <stop offset="100%" stop-color="#F2B985"/>
+    </radialGradient>
+    <radialGradient id="panX" cx="50%" cy="48%" r="55%">
+      <stop offset="60%" stop-color="#2d2118"/>
+      <stop offset="100%" stop-color="#0f0906"/>
+    </radialGradient>
+    <radialGradient id="riceX" cx="50%" cy="48%" r="50%">
+      <stop offset="0%" stop-color="#F5D061"/>
+      <stop offset="70%" stop-color="#E4A72F"/>
+      <stop offset="100%" stop-color="#B87C18"/>
+    </radialGradient>
+    <linearGradient id="chickenX" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A0611D"/>
+      <stop offset="100%" stop-color="#6a3d10"/>
+    </linearGradient>
+    <linearGradient id="shrimpX" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBA584"/>
+      <stop offset="100%" stop-color="#D9522D"/>
+    </linearGradient>
+    <linearGradient id="musselX" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a3147"/>
+      <stop offset="100%" stop-color="#0b0e1a"/>
+    </linearGradient>
+    <linearGradient id="musselInX" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4B689"/>
+      <stop offset="100%" stop-color="#C77043"/>
+    </linearGradient>
+    <linearGradient id="pepRedX" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E94B35"/>
+      <stop offset="100%" stop-color="#A82414"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgX)"/>
+  <ellipse cx="400" cy="555" rx="300" ry="22" fill="rgba(0,0,0,0.18)"/>
+
+  <circle cx="110" cy="300" r="18" fill="#1a110a"/>
+  <circle cx="690" cy="300" r="18" fill="#1a110a"/>
+  <rect x="92" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+  <rect x="670" y="292" width="38" height="16" rx="4" fill="#1a110a"/>
+
+  <ellipse cx="400" cy="310" rx="290" ry="255" fill="url(#panX)"/>
+  <ellipse cx="400" cy="300" rx="268" ry="232" fill="url(#riceX)"/>
+
+  <g fill="#fff4c6" opacity="0.55">
+    <circle cx="260" cy="220" r="2.2"/><circle cx="320" cy="270" r="2"/><circle cx="390" cy="215" r="2"/><circle cx="460" cy="265" r="2.4"/><circle cx="520" cy="220" r="2"/><circle cx="560" cy="280" r="2.2"/>
+    <circle cx="300" cy="340" r="2"/><circle cx="370" cy="380" r="2.2"/><circle cx="430" cy="340" r="2"/><circle cx="500" cy="390" r="2.3"/><circle cx="560" cy="350" r="2"/>
+    <circle cx="240" cy="290" r="2"/><circle cx="600" cy="300" r="2.2"/><circle cx="400" cy="430" r="2"/><circle cx="320" cy="440" r="2"/><circle cx="490" cy="440" r="2.2"/>
+  </g>
+
+  <!-- Chicken -->
+  <g transform="translate(290 220) rotate(-18)">
+    <ellipse cx="0" cy="0" rx="56" ry="40" fill="url(#chickenX)"/>
+    <ellipse cx="-6" cy="-10" rx="28" ry="13" fill="#c78449" opacity="0.6"/>
+  </g>
+  <g transform="translate(540 240) rotate(14)">
+    <ellipse cx="0" cy="0" rx="50" ry="36" fill="url(#chickenX)"/>
+    <ellipse cx="-6" cy="-10" rx="26" ry="12" fill="#c78449" opacity="0.6"/>
+  </g>
+
+  <!-- Shrimp -->
+  <g transform="translate(510 380) rotate(20)">
+    <path d="M-54 0 Q -54 -32 0 -32 Q 54 -32 54 0 Q 36 18 0 18 Q -36 18 -54 0 Z" fill="url(#shrimpX)"/>
+    <path d="M-46 -4 q 10 -5 20 0 m 0 0 q 10 -5 20 0 m 0 0 q 10 -5 20 0" stroke="#8a2f15" stroke-width="1.6" fill="none" opacity="0.6"/>
+    <path d="M54 0 l 20 -10 l -6 16 Z" fill="#d9522d"/>
+  </g>
+  <g transform="translate(280 400) rotate(-10)">
+    <path d="M-54 0 Q -54 -32 0 -32 Q 54 -32 54 0 Q 36 18 0 18 Q -36 18 -54 0 Z" fill="url(#shrimpX)"/>
+    <path d="M54 0 l 20 -10 l -6 16 Z" fill="#d9522d"/>
+  </g>
+
+  <!-- Mussel -->
+  <g transform="translate(400 450) rotate(-5)">
+    <path d="M-54 0 Q -34 -36 0 -36 Q 34 -36 54 0 Z" fill="url(#musselX)"/>
+    <path d="M-48 -2 Q -28 -30 0 -30 Q 28 -30 48 -2 Z" fill="url(#musselInX)"/>
+  </g>
+
+  <!-- Red peppers -->
+  <g fill="url(#pepRedX)">
+    <path d="M430 200 q 54 -10 82 8 q -18 20 -72 14 q -20 -4 -10 -22 z"/>
+    <path d="M240 320 q 48 -8 74 14 q -22 18 -72 8 q -14 -6 -2 -22 z"/>
+    <path d="M560 420 q 50 -6 70 18 q -28 14 -68 0 q -12 -8 -2 -18 z"/>
+  </g>
+
+  <!-- Lemon wedge -->
+  <g transform="translate(600 160)">
+    <path d="M0 0 L 56 0 A 56 56 0 0 0 0 -56 Z" fill="#F7D04B"/>
+    <path d="M4 -4 L 48 -4 A 48 48 0 0 0 4 -48 Z" fill="#FEEC8F" opacity="0.7"/>
+    <line x1="6" y1="-6" x2="44" y2="-6" stroke="#d9a81a" stroke-width="1.4"/>
+    <line x1="6" y1="-6" x2="6" y2="-44" stroke="#d9a81a" stroke-width="1.4"/>
+  </g>
+
+  <!-- Parsley -->
+  <g fill="#4a7a22">
+    <circle cx="400" cy="290" r="3"/><circle cx="406" cy="286" r="2"/>
+    <circle cx="350" cy="330" r="2.5"/><circle cx="480" cy="330" r="2.5"/>
+  </g>
+</svg>

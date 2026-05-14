@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Las Paellas de Ana">
+  <!-- Fondo circular cálido (mismo diseño que el favicon) -->
+  <circle cx="50" cy="50" r="50" fill="#F5B400"/>
+  <circle cx="50" cy="50" r="38" fill="#C0392B"/>
+  <!-- Letra A tipo Playfair, crema -->
+  <text x="50" y="66" text-anchor="middle"
+        font-family="Georgia, 'Playfair Display', serif"
+        font-weight="800"
+        font-size="44"
+        fill="#FFF8E7">A</text>
+</svg>

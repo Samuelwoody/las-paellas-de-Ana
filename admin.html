@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Panel de Ana · Las Paellas de Ana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/admin.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23F5B400'/%3E%3Ccircle cx='50' cy='50' r='35' fill='%23C0392B'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='%23FFF8E7' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="config.js" defer></script>
+    <script src="assets/js/supabase-client.js" defer></script>
+    <script src="assets/js/admin.js" defer></script>
+</head>
+<body class="admin-body">
+
+    <header class="admin-topbar">
+        <div class="admin-brand">
+            <span class="brand-mark">A</span>
+            <div>
+                <div class="brand-name">Las Paellas de Ana</div>
+                <div class="brand-sub">Panel de Ana</div>
+            </div>
+        </div>
+        <nav class="admin-actions">
+            <a href="index.html" target="_blank" rel="noopener" class="btn btn-ghost-dark btn-sm">Ver web pública ↗</a>
+            <span class="admin-user" id="adminUser">—</span>
+            <button type="button" class="btn btn-sm btn-danger" id="logoutBtn">Cerrar sesión</button>
+        </nav>
+    </header>
+
+    <nav class="admin-nav" role="tablist">
+        <div class="container">
+            <button type="button" class="admin-nav-btn is-active" data-panel="products" role="tab" aria-selected="true">🍽️ Productos</button>
+            <button type="button" class="admin-nav-btn" data-panel="settings" role="tab" aria-selected="false">⚙️ Ajustes del sitio</button>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+
+        <div class="admin-notice" id="adminNotice" hidden></div>
+
+        <!-- ============ PANEL PRODUCTOS ============ -->
+        <section class="admin-panel is-active" id="panel-products" role="tabpanel">
+            <section class="admin-header">
+                <div>
+                    <span class="eyebrow">Gestión del menú</span>
+                    <h1>Productos</h1>
+                    <p class="admin-lead">Crea, edita y organiza lo que aparece en la web pública. Los cambios salen al instante.</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="newProductBtn">+ Nuevo producto</button>
+            </section>
+
+            <div class="admin-tabs" role="tablist">
+                <button type="button" class="admin-tab is-active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                <button type="button" class="admin-tab" data-filter="paella" role="tab" aria-selected="false">Paellas</button>
+                <button type="button" class="admin-tab" data-filter="ensalada" role="tab" aria-selected="false">Ensaladas</button>
+                <button type="button" class="admin-tab" data-filter="bebida" role="tab" aria-selected="false">Bebidas</button>
+            </div>
+
+            <div class="admin-table-wrap">
+                <table class="admin-table" id="productsTable">
+                    <thead>
+                        <tr>
+                            <th class="col-img">Imagen</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Etiqueta</th>
+                            <th class="col-price">Precio</th>
+                            <th class="col-order">Orden</th>
+                            <th class="col-status">Estado</th>
+                            <th class="col-actions"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsBody">
+                        <tr><td colspan="8" class="admin-table-empty">Cargando productos…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ PANEL AJUSTES ============ -->
+        <section class="admin-panel" id="panel-settings" role="tabpanel" hidden>
+            <section class="admin-header">
+                <div>
+                    <span class="eyebrow">Cómo se ve la web</span>
+                    <h1>Ajustes del sitio</h1>
+                    <p class="admin-lead">Cambia el logo, los datos de contacto, el slogan y cómo aparece tu marca en la web pública.</p>
+                </div>
+            </section>
+
+            <form id="settingsForm" class="admin-settings-form" novalidate>
+
+                <fieldset class="admin-card-form">
+                    <legend>🏷️ Marca</legend>
+                    <div class="admin-form-row">
+                        <label class="admin-field">
+                            <span>Nombre de la marca</span>
+                            <input type="text" name="brand_name" maxlength="80" placeholder="Las Paellas de Ana">
+                        </label>
+                        <label class="admin-field">
+                            <span>Subtítulo</span>
+                            <input type="text" name="brand_subtitle" maxlength="120" placeholder="by Restaurante Terraza Cerro">
+                        </label>
+                    </div>
+                    <label class="admin-field">
+                        <span>Logo (imagen)</span>
+                        <div class="admin-image-upload">
+                            <div class="admin-image-preview admin-logo-preview" id="logoPreview" aria-hidden="true">
+                                <span>Sin logo</span>
+                            </div>
+                            <div class="admin-image-controls">
+                                <input type="file" id="logoFile" accept="image/*">
+                                <input type="hidden" name="logo_url" id="logoUrl">
+                                <button type="button" class="btn btn-sm btn-ghost-dark" id="removeLogoBtn">Quitar logo</button>
+                                <p class="admin-hint">Si subes un logo, reemplaza la letra A del navbar y del footer. PNG transparente o JPG.</p>
+                            </div>
+                        </div>
+                    </label>
+                </fieldset>
+
+                <fieldset class="admin-card-form">
+                    <legend>✨ Hero (portada)</legend>
+                    <label class="admin-field">
+                        <span>Encabezado pequeño</span>
+                        <input type="text" name="hero_eyebrow" maxlength="120" placeholder="Paellas para llevar · Valdemorillo">
+                    </label>
+                    <label class="admin-field">
+                        <span>Slogan principal <em>*</em></span>
+                        <textarea name="hero_title" rows="2" maxlength="180" placeholder="El sabor de la *paella auténtica* recién hecha para ti"></textarea>
+                        <small class="admin-hint">Usa <code>*asteriscos*</code> para resaltar una palabra en amarillo. Por ejemplo: <code>El sabor de la *paella auténtica*</code>.</small>
+                    </label>
+                    <label class="admin-field">
+                        <span>Párrafo descriptivo</span>
+                        <textarea name="hero_lead" rows="3" maxlength="400" placeholder="Arroz bomba, sofrito a fuego lento…"></textarea>
+                    </label>
+                    <label class="admin-field">
+                        <span>Zona (badge del hero)</span>
+                        <input type="text" name="hero_area" maxlength="60" placeholder="Cerro Alarcón">
+                    </label>
+                </fieldset>
+
+                <fieldset class="admin-card-form">
+                    <legend>📞 Contacto</legend>
+                    <div class="admin-form-row">
+                        <label class="admin-field">
+                            <span>Teléfono visible</span>
+                            <input type="text" name="phone_display" maxlength="30" placeholder="918 97 44 33">
+                        </label>
+                        <label class="admin-field">
+                            <span>Teléfono para llamar (formato tel:)</span>
+                            <input type="text" name="phone_tel" maxlength="30" placeholder="+34918974433">
+                        </label>
+                    </div>
+                    <div class="admin-form-row">
+                        <label class="admin-field">
+                            <span>Dirección (línea 1)</span>
+                            <input type="text" name="address_line1" maxlength="120" placeholder="Calle Río Sil, 2">
+                        </label>
+                        <label class="admin-field">
+                            <span>Dirección (línea 2)</span>
+                            <input type="text" name="address_line2" maxlength="120" placeholder="Cerro Alarcón, Valdemorillo">
+                        </label>
+                    </div>
+                    <label class="admin-field">
+                        <span>Servicio de (restaurante)</span>
+                        <input type="text" name="restaurant_name" maxlength="120" placeholder="Restaurante Terraza Cerro">
+                    </label>
+                </fieldset>
+
+                <div class="admin-form-actions admin-settings-actions">
+                    <a href="index.html" target="_blank" rel="noopener" class="btn btn-ghost-dark">Ver web pública ↗</a>
+                    <button type="submit" class="btn btn-primary" id="saveSettingsBtn">Guardar ajustes</button>
+                </div>
+
+                <div class="admin-form-error" id="settingsError" role="alert" hidden></div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Modal del formulario de producto -->
+    <div class="admin-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" hidden>
+        <div class="admin-modal-backdrop" data-close></div>
+        <div class="admin-modal-card">
+            <button type="button" class="admin-modal-close" data-close aria-label="Cerrar">×</button>
+            <h2 id="productModalTitle">Nuevo producto</h2>
+
+            <form id="productForm" class="admin-form" novalidate>
+                <input type="hidden" name="id">
+
+                <div class="admin-form-row">
+                    <label class="admin-field">
+                        <span>Nombre <em>*</em></span>
+                        <input type="text" name="name" required maxlength="120" placeholder="Ej. Paella Mixta">
+                    </label>
+                    <label class="admin-field">
+                        <span>Categoría <em>*</em></span>
+                        <select name="category" required>
+                            <option value="paella">Paella</option>
+                            <option value="ensalada">Ensalada</option>
+                            <option value="bebida">Bebida</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label class="admin-field">
+                    <span>Descripción</span>
+                    <textarea name="description" rows="3" maxlength="280" placeholder="Pollo de corral, conejo, judía verde…"></textarea>
+                </label>
+
+                <div class="admin-form-row">
+                    <label class="admin-field">
+                        <span>Etiqueta</span>
+                        <input type="text" name="tag" maxlength="40" placeholder="Ej. Carne, Vegetariana, Fresca…">
+                    </label>
+                    <label class="admin-field">
+                        <span>Color etiqueta</span>
+                        <select name="tag_style">
+                            <option value="meat">Rojo (carne)</option>
+                            <option value="veg">Verde (veg)</option>
+                            <option value="sea">Azul (mar)</option>
+                            <option value="mix">Ámbar (mixta)</option>
+                            <option value="classic">Marrón (clásica)</option>
+                            <option value="cool">Celeste (fría)</option>
+                            <option value="wine">Burdeos (vino)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="admin-form-row">
+                    <label class="admin-field">
+                        <span>Precio (€)</span>
+                        <input type="number" name="price" step="0.01" min="0" placeholder="Ej. 18.50">
+                    </label>
+                    <label class="admin-field">
+                        <span>Orden</span>
+                        <input type="number" name="sort_order" step="1" value="10" placeholder="10, 20, 30…">
+                    </label>
+                </div>
+
+                <label class="admin-field admin-field-checkbox">
+                    <input type="checkbox" name="is_active" checked>
+                    <span>Activo (visible en la web pública)</span>
+                </label>
+
+                <label class="admin-field">
+                    <span>Imagen</span>
+                    <div class="admin-image-upload">
+                        <div class="admin-image-preview" id="imagePreview" aria-hidden="true">
+                            <span>Sin imagen</span>
+                        </div>
+                        <div class="admin-image-controls">
+                            <input type="file" name="image_file" id="imageFile" accept="image/*">
+                            <input type="hidden" name="image_url" id="imageUrl">
+                            <button type="button" class="btn btn-sm btn-ghost-dark" id="removeImageBtn">Quitar imagen</button>
+                            <p class="admin-hint">PNG, JPG o WebP. Se guarda en Supabase Storage.</p>
+                        </div>
+                    </div>
+                </label>
+
+                <div class="admin-form-actions">
+                    <button type="button" class="btn btn-ghost-dark" data-close>Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="saveProductBtn">Guardar</button>
+                </div>
+
+                <div class="admin-form-error" id="formError" role="alert" hidden></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación de borrado -->
+    <div class="admin-modal" id="deleteModal" role="dialog" aria-modal="true" hidden>
+        <div class="admin-modal-backdrop" data-close></div>
+        <div class="admin-modal-card admin-modal-sm">
+            <button type="button" class="admin-modal-close" data-close aria-label="Cerrar">×</button>
+            <h2>¿Borrar producto?</h2>
+            <p>Estás a punto de borrar <strong id="deleteName">—</strong>. Esta acción no se puede deshacer.</p>
+            <div class="admin-form-actions">
+                <button type="button" class="btn btn-ghost-dark" data-close>Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Sí, borrar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
